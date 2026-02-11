@@ -1,0 +1,67 @@
+---
+title: "Fish Quality assignment"
+author: "Alejandro Molina Moctezuma"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---
+
+## Dataset
+
+We will be using the `InchLake2` dataset from `FSAdata`.
+
+```{r}
+library(FSAdata)
+df<-data(InchLake2)
+```
+
+Filter the data so we only see Largemouth Bass from 2008
+
+## Assignment
+
+The length is given in inches, but we want mm. Create a new column called length.mm in which you are estimating the length in mm.
+
+::: callout-warning
+## Question 1 ✏️ 3 points
+
+Plot the Length- Weight relationship using mm and grams (weight is given in grams). Just a scatterplot
+:::
+
+Now, let's estimate the relative weight for each individual.
+
+::: callout-warning
+## Question 2 ✏️ 6 points
+
+Estimate the relative weight for each individual (expected value for a good quality fish: 100).
+
+Step 1: Calculate the expected standard weight. This is the expected weight for a quality individual of a specific size:
+
+$$
+Ws = 10^{\beta_0 + \beta_1 \times log_{10} Length }
+$$
+
+You can obtain the $\beta_0$ and $\beta_1$ from the `wsVal`() function
+
+Make sure to use the length in mm!
+
+Step 2: Estimate the relative weight:
+
+$$
+Wr = \frac{Weight}{WS} \times 100
+$$
+:::
+
+Finally let's see what the average relative weight is per length category. You can review the categories for Largemout Bass using `psdVal()` from the FSA.
+
+::: callout-warning
+## Question 3 ✏️ 6 points
+
+For each length category estimate the mean Wr and the upper and lower confidence intervals. Do you think any size group has condition problems?
+:::
+
+Quick way to estimate a mean and CI's for a group.
+
+You can use he following function: `t.test(values)` to obtain a mean and CI quickly.
+
+Submit code and answers.

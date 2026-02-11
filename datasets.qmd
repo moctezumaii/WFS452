@@ -1,0 +1,59 @@
+---
+title: "Data sets for management"
+format: html
+editor: visual
+---
+
+## Data sets
+
+All data sets will come from the `FSAdata` package. You can consult the package to get more information on the datasets.
+
+\`\`\`{}
+
+\`\`\`{}
+
+You can use the `?` to obtain more info on a particular dataset.
+
+```{r eval=FALSE}
+library(FSAdata)
+?BGHRfish
+```
+
+## Data set 1
+
+#### Big Hill Reservoir
+
+Fish information from electrofishing samples collected from Big Hill Reservoir, KS, 2014.
+
+A dataframe with 266 observations from Smallmouth bass, Largemouth bass and Bluegill.
+
+There are two datasets for this dataset `BGHRfish` and `BGHRsample`.
+
+You are tasked with managing this fishery, and some potential issues are condition, community composition, balance of the fishery and whether this fishery will attract anglers.
+
+## Data set 2
+
+#### InchLake, WI
+
+Make a management plan for Inch Lake, WI. The appropriate datasets are: `BluegillIL`, `InchLake1`, and `InchLake2`. Assume all data is current (that it was collected in the last 2-3 years.
+
+## Data set 3
+
+#### Trout Lake, WI
+
+You have two datasets, each spanning 25 years:
+
+1.  Lengths and weights for Yellow Perch from Trout Lake, WI. `YPerchTL`
+2.  Lengths, weights, and sex of Cisco from Trout Lake, WI. `CiscoTL`
+
+Check whether the condition, or size distribution has changed during these 25 years.
+
+## Dataset 4
+
+This is a bit different. You won't be asked to manage a specific body of water, but to manage for Muskellunge abundance in Wisconsin Lakes.
+
+The dataset is `MuskieWI06MR`
+
+```{r eval=F}
+
+```
