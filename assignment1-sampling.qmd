@@ -38,7 +38,7 @@ Before we do that, you should make sure I am not lying to you and check whether 
 
 In cell B102 you can estimate the mean **population** length by typing:
 
-```{}
+```         
 =AVERAGE(B2:B101)
 ```
 
@@ -227,7 +227,7 @@ ggplot(df, aes(x = experiment, y = means,colour=inclusive,ymin = LCI, ymax=UCI))
 
 This simulation sampled the population 100 times. Each time, it estimated a mean, and a confidence interval. It chose a color based on whether the real parameter was included or not.
 
-Answer: \
+Answer:\
 3.1 do these results make sense? Why or why not?
 
 3.2 What would happen if the sampling was not random?
