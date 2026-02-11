@@ -112,7 +112,7 @@ set.seed(452) # So everyone gets the same result
 
 # Randomly select ~40% of fish to be "aged"
 n <- nrow(CreekChub)
-aged_indices <- sample(1:n, size = round(0.4 * n))
+aged_indices <- sample(1:n, size = round(0.45 * n))
 
 # Create aged and unaged datasets
 aged <- CreekChub[aged_indices, ]
@@ -134,7 +134,7 @@ raw <- xtabs(~ LenCat + age, data = aged)
 raw
 ```
 
-This gives us the **raw counts** — how many aged fish in each length bin belong to each age. Now let's convert those to **proportions** (probabilities):
+This gives us the **raw counts** - how many aged fish in each length bin belong to each age. Now let's convert those to **proportions** (probabilities):
 
 ```{r}
 alk <- prop.table(raw, margin = 1)
@@ -146,7 +146,7 @@ The `margin = 1` means we calculate proportions across each row (each length cat
 ::: callout-important
 ## Question 3 (1 pt)
 
-Look at the ALK table. Pick one length category and describe what the proportions tell you. For example: "A fish in the \_\_\_ mm length category has a \_\_\_% chance of being age \_\_\_ and a \_\_\_% chance of being age \_\_\_."
+Look at the ALK table. Pick three length category and describe what the proportions tell you. For example: "A fish in the \_\_\_ mm length category has a \_\_\_% chance of being age \_\_\_ and a \_\_\_% chance of being age \_\_\_."
 :::
 
 ## Part 5: Bubble Plot
@@ -255,21 +255,25 @@ plot(len ~ age, data = full_data,
      pch = 16, col = rgb(0, 0, 0, 0.3))
 ```
 
-Now, let's fit the Von Bertalanffy model. We need starting values for the parameters. The `vbStarts()` function helps us get reasonable guesses:
+Now, let's fit the Von Bertalanffy model. We need starting values for the parameters. These are some good starting values based on published data.
 
 ```{r}
-sv <- vbStarts(len ~ age, data = full_data)
-sv
+sv_manual <- list(Linf = 200, K = 0.3, t0 = -1)
 ```
 
 Now we define the Von Bertalanffy function and fit the model using `nls()` (nonlinear least squares):
 
 ```{r}
-vb <- vbFuns("Typical")
+library(minpack.lm)
 
-fit <- nls(len ~ vb(age, Linf, K, t0),
-           data = full_data,
-           start = sv)
+vb <- vbFuns("Typical")
+sv <- vbStarts(len ~ age, data = full_data)
+
+fit <- nlsLM(len ~ vb(age, Linf, K, t0),
+             data = full_data,
+             start = sv)
+
+summary(fit)
 
 summary(fit)
 ```
@@ -288,8 +292,8 @@ Report the estimated values of $L_\infty$, $K$, and $t_0$.
 Interpret each one in the context of Creek Chub biology:
 
 -   What does $L_\infty$ tell you about the maximum size?
--   Is $K$ relatively high or low? What does that mean for how fast they grow?
--   What does $t_0$ represent? Is a negative value expected?
+-   Is $K$ relatively high or low? What does that mean for how fast they grow? –\> You can Google this
+-   What does $t_0$ represent? Is a negative value expected? –\> You can Google this
 :::
 
 ## Part 9: Plotting the Von Bertalanffy Curve
@@ -298,7 +302,7 @@ Now let's overlay the fitted curve on our data:
 
 ```{r}
 # Create a sequence of ages for the curve
-age_seq <- seq(min(full_data$age), max(full_data$age), length.out = 100)
+age_seq <- seq(min(full_data$age,na.rm = TRUE), max(full_data$age, na.rm = TRUE), length.out = 100)
 
 # Predict lengths
 pred_len <- predict(fit, newdata = data.frame(age = age_seq))
