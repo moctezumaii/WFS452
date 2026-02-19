@@ -1,0 +1,7 @@
+library(FSA)
+library(AquaticLifeHistory)
+vonbertdata<-read.csv("C:/Users/emile/Downloads/VonBertexam.csv")
+vbm<-subset(vonbertdata,sex== "M")
+vbf<-subset(vonbertdata,sex== "F")
+Estimate_Growth(data=vbm, models=c("Log"))
+Estimate_Growth(data=vbf, models=c("Log"))
