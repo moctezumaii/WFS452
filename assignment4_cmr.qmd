@@ -1,0 +1,303 @@
+---
+title: "Capture-Mark-Recapture"
+author: "Dr. Alejandro Molina-Moctezuma"
+format:
+  html: 
+    embed-resources: true
+    toc: true
+    toc-depth: 2
+editor: visual
+execute:
+  eval: false
+---
+
+## Capture-Mark-Recapture (CMR)
+
+25 pts total.
+
+Upload your completed Quarto (.qmd) file with all R code and written answers to Canvas.
+
+------------------------------------------------------------------------
+
+## Introduction
+
+Capture-Mark-Recapture (CMR) is one of the most widely used methods in fisheries science for estimating the abundance of a population when it is impossible — or impractical — to count every individual directly. The basic idea is simple: you catch a sample of fish, mark them in some way (a fin clip, a tag, a dye), release them back into the water, and then come back later to catch another sample. The proportion of marked fish you recapture in that second sample gives you information about how large the population is.
+
+Think of it this way: if you marked 100 fish and released them into a lake, and then your second sample of 100 fish contained 50 marked individuals, you'd guess the population was around 200. If only 10 were marked, you'd guess the population was around 1,000. 
+
+### Assumptions of CMR
+
+Like all models, CMR relies on some assumptions. For the estimates to be valid, we generally need:
+
+1.  The population is **closed**: no births, deaths, immigration, or emigration occur between the marking and recapture events.
+2.  All individuals have an **equal probability of being captured** (equal catchability): marked and unmarked fish are equally likely to be caught in the second sample.
+3.  **Marks are not lost** and do not fall off between sampling events.
+4.  **Marks are correctly identified**  all marked fish are recognized as marked during the recapture event.
+5.  **Indivials are not trap happy or shy** This follows #2. Tagging a fish won't increase or reduce the chances of the fish being captured again
+
+Keep these assumptions in mind: you will come back to them later in this assignment!
+
+------------------------------------------------------------------------
+
+## Exercise 1: Chapman's Modified Lincoln-Petersen Estimator (5 pts)
+
+You have already seen the Lincoln-Petersen estimator in this course. As a reminder, we use a slightly modified version developed by Chapman that performs better with small sample sizes. The Chapman estimator is:
+
+$$
+\hat{N} = \frac{(M + 1)(C + 1)}{R + 1} - 1
+$$
+
+Where:
+
+-   $M$ = Number of individuals captured, marked, and released in the first sample
+-   $C$ = Total number of individuals captured in the second sample
+-   $R$ = Number of recaptured (marked) individuals in the second sample
+
+Trust me on this one: this formula is more reliable than the classic Lincoln-Petersen for the kinds of sample sizes we typically deal with in fisheries. **This is the equation you should use any time you are asked for a mark-recapture abundance estimate.**
+
+::: callout-warning
+## Question 1 ✏️ 5 pts
+
+Use the data from Tuesday for small fish only and implement the Chapman estimator in R to estimate $\hat{N}$:
+
+-   $M = $ (fish marked and released in first sample)
+-   $C = $ (fish captured in second sample)
+-   $R = $ (marked fish recaptured in second sample)
+
+Write your R code in the chunk below and report your estimated population size.
+:::
+
+```{r}
+# Your code here
+M <- 45  # Number marked in first sample
+C <- 52  # Total captured in second sample
+R <- 12  # Recaptured marked individuals
+
+# Chapman estimator -- fill in the formula!
+N_hat <- 
+
+N_hat
+```
+
+------------------------------------------------------------------------
+
+## Exercise 2: Confidence Intervals for $\hat{N}$ (5 pts)
+
+A point estimate is great, but we always want to know how precise it is. Seber (1982) worked out the variance of the Chapman estimator, which we can use to build a confidence interval. The variance is:
+
+$$
+Var(\hat{N}) = \frac{(M + 1)(C + 1)(M - R)(C - R)}{(R + 1)^2(R + 2)}
+$$
+
+And the 95% confidence interval is calculated as:
+
+$$
+\hat{N} \pm 1.96 \sqrt{Var(\hat{N})}
+$$
+
+The following R code implements both the Chapman estimator and the 95% CI using the same data from Exercise 1. Run it and make sure you understand what each line is doing:
+
+```{r}
+M <-   # Number marked in first sample
+C <-   # Total captured in second sample
+R <-   # Recaptured marked individuals
+
+# Chapman estimator
+N_hat <- ((M + 1) * (C + 1)) / (R + 1) - 1
+
+# Variance
+Var_N <- ((M + 1) * (C + 1) * (M - R) * (C - R)) / ((R + 1)^2 * (R + 2))
+
+# 95% Confidence Interval
+CI_lower <- N_hat - 1.96 * sqrt(Var_N)
+CI_upper <- N_hat + 1.96 * sqrt(Var_N)
+
+N_hat
+CI_lower
+CI_upper
+```
+
+::: callout-warning
+## Question 2 ✏️ 5 pts
+
+Interpret the confidence interval you obtained above. What does it mean in plain language? Imagine you are explaining this to a fisheries manager who is not a statistician. Raise your hand if you have questions on this one!
+:::
+
+------------------------------------------------------------------------
+
+## Exercise 3: Virtual Simulation — Population Estimation Model (7 pts)
+
+Now let's put this into practice using a virtual simulation. Go to the following link:
+
+👉 <https://virtualbiologylab.org/NetWebHTML_FilesJan2016/PopulationEstimationModel.html>
+
+This simulation lets you perform mark-recapture experiments in a virtual pond. Read the instructions carefully before starting.
+
+### Part A — Small Pond (3 pts)
+
+Set up the simulation with the following parameters:
+
+-   **Pond size:** Small pond
+-   **Net size:** Large net
+-   **Population size:** Large population
+
+**Procedure:**
+
+1.  Perform **one single dip** with the net.
+2.  **Mark ALL individuals** you caught (these are your marked fish, $M$).
+3.  Release them back into the pond.
+4.  Perform a **second dip** to recapture fish. Record how many you caught total ($C$) and how many of those were marked ($R$).
+
+Now use R (modify the code from Exercise 2) to estimate $\hat{N}$ and the 95% CI.
+
+::: callout-warning
+## Question 3 ✏️ 3 pts
+
+Report your values for $M$, $C$, and $R$ from the simulation. Then report your estimated $\hat{N}$ and the 95% confidence interval. Include your R code.
+:::
+
+```{r}
+# Part A: Small Pond
+M <- # your value here
+C <- # your value here
+R <- # your value here
+
+N_hat <- 
+Var_N <- 
+CI_lower <- N_hat - 1.96 * sqrt(Var_N)
+CI_upper <- N_hat + 1.96 * sqrt(Var_N)
+
+N_hat
+CI_lower
+CI_upper
+```
+
+### Part B — Large Pond (4 pts)
+
+Now change **only the pond size** to **Large pond**. Keep the population size the same (Large). Repeat the exact same procedure: one dip, mark all, release, then one recapture dip.
+
+Estimate $\hat{N}$ and the 95% CI in R just like before.
+
+::: callout-warning
+## Question 4 ✏️ 4 pts
+
+Report your $M$, $C$, $R$, estimated $\hat{N}$, and 95% CI for the Large Pond. Did your estimate change compared to Part A? Why or why not? Think about what changed between the two scenarios. Hint: the **density** of fish changed when you made the pond bigger. How does density affect catchability?
+:::
+
+```{r}
+# Part B: Large Pond
+M <- # your value here
+C <- # your value here
+R <- # your value here
+
+N_hat <- 
+Var_N <- 
+CI_lower <- N_hat - 1.96 * sqrt(Var_N)
+CI_upper <- N_hat + 1.96 * sqrt(Var_N)
+
+N_hat
+CI_lower
+CI_upper
+```
+
+------------------------------------------------------------------------
+
+## Exercise 4: Virtual Simulation — Mark-Recapture Model with Traps (8 pts)
+
+Now we are going to use a different, more realistic simulation that uses traps instead of nets. Go to:
+
+👉 <https://virtualbiologylab.org/NetWebHTML_FilesJan2016/MarkRecaptureModel.html>
+
+**General instructions for all experiments:**
+
+-   Use a **large population** for all experiments.
+-   Open the traps but do **NOT** physically close them: just control trapping using the trap time setting.
+-   **Move the traps around**. You can also move them (ideally) between capture and recapture
+-   Perform **one single trap opening** to mark individuals, release all marked individuals, then do one recapture event.
+
+You will run three separate experiments, changing only the specified parameters each time.
+
+------------------------------------------------------------------------
+
+### Experiment 1: Random Distribution, Neutral Trap Experience (2 pts)
+
+Set the simulation to:
+
+-   **Population distribution:** Random
+-   **Trap experience:** Neutral
+-   **Other parameters** You choose, but report them in your assignemnt
+
+Follow the general instructions above. Record $M$, $C$, and $R$, then estimate $\hat{N}$ and the 95% CI in R.
+
+::: callout-warning
+## Question 5 ✏️ 2 pts
+
+Report your $M$, $C$, $R$, estimated $\hat{N}$, and 95% CI for Experiment 1. Include your R code. Again, you should do this in a quarto file with all your code and output in it.
+:::
+
+
+
+------------------------------------------------------------------------
+
+### Experiment 2: Clumped Distribution, Neutral Trap Experience (2 pts)
+
+Change **only the population distribution** to **Clumped**. Keep trap experience as Neutral. Repeat the same procedure.
+
+::: callout-warning
+## Question 6 ✏️ 2 pts
+
+Report your $M$, $C$, $R$, estimated $\hat{N}$, and 95% CI for Experiment 2. Include your R code.
+:::
+
+
+------------------------------------------------------------------------
+
+### Experiment 3: Random Distribution, Negative Trap Experience (2 pts)
+
+Go back to **Random distribution** and change the trap experience to **Negative**. Repeat the same procedure.
+
+::: callout-warning
+## Question 7 ✏️ 2 pts
+
+Report your $M$, $C$, $R$, estimated $\hat{N}$, and 95% CI for Experiment 3. Include your R code.
+:::
+
+```{r}
+# Experiment 3: Random distribution, Negative trap experience
+M <- # your value here
+C <- # your value here
+R <- # your value here
+
+N_hat <- ((M + 1) * (C + 1)) / (R + 1) - 1
+Var_N <- ((M + 1) * (C + 1) * (M - R) * (C - R)) / ((R + 1)^2 * (R + 2))
+CI_lower <- N_hat - 1.96 * sqrt(Var_N)
+CI_upper <- N_hat + 1.96 * sqrt(Var_N)
+
+N_hat
+CI_lower
+CI_upper
+```
+
+------------------------------------------------------------------------
+
+### Reflection Questions (2 pts)
+
+::: callout-warning
+## Question 8 ✏️ 2 pts
+
+Answer the following questions based on your results from Experiments 1, 2, and 3:
+
+1.  What happened to your abundance estimates and confidence intervals when you changed from **random** to **clumped** distribution (Experiment 1 vs. 2)? Why do you think that happened?
+
+2.  What happened when you introduced **negative trap experience** (Experiment 1 vs. 3)? How did this affect your estimates?
+
+3.  Go back to the list of **four assumptions** we listed in the Introduction. For each of the three experiments, state which assumptions (if any) were being **violated** and explain why.
+
+4.  Which experiment do you think gave the **most reliable** estimate? Why?
+:::
+
+------------------------------------------------------------------------
+
+## Submission Instructions
+
+Upload your completed **RENDERED Quarto (.qmd) file** — with all R code filled in and all written answers — to Canvas. Make sure your file renders without errors before submitting. If something is not working, reach out before the deadline!
