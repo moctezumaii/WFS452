@@ -4085,7 +4085,7 @@
     ".posit/publish/Size structure-J7QE.toml": {
       "checksum": "2446f31971ff48d9bfc7645ba8f8eb16"
     },
-    ".RData": {
+    ".RData.backup": {
       "checksum": "7667f678b0584755e66f42619b8d30a9"
     },
     "AIFFDReferences.bib": {
@@ -4260,7 +4260,7 @@
       "checksum": "97f2e9b1ea11489e423aad997e229b3a"
     },
     "examquestions.R": {
-      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+      "checksum": "2a80b7e4f99e5259123f05d934f93cfb"
     },
     "fish-lw-assignment.html": {
       "checksum": "31663932d1f204db5b3627636191e619"
@@ -4341,7 +4341,7 @@
       "checksum": "f482067d1d6da347843de78aff9e4f83"
     },
     "hwk2-abundance.qmd": {
-      "checksum": "725534ce2e131decfea75c178179af65"
+      "checksum": "aafc489da8813596c0bce37cbf8ccbe8"
     },
     "hwk2-abundance_files/libs/bootstrap/bootstrap-933a14f46f0e4d1503cecf416b5e09b4.min.css": {
       "checksum": "933a14f46f0e4d1503cecf416b5e09b4"
@@ -4494,7 +4494,7 @@
       "checksum": "91a6f5f36708ffa49857d62f5b22429f"
     },
     "size str 1.qmd": {
-      "checksum": "1e2bfc329b2461e3488874906f3f3827"
+      "checksum": "5a307188c6fd464da588ce012ee7a33f"
     },
     "sizestructure.html": {
       "checksum": "c0e8affe0bcdc3de22c8eb5b2e26110c"
