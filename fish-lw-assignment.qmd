@@ -1,0 +1,174 @@
+---
+title: "Exploring Fish Length-Weight Relationships"
+format: html
+editor: source
+---
+
+Submit a rendered qmd with all code, outputs, and answers to questions. Preferably in word (format: docx). It *must* incldue all code and outputs, and answers to questions.
+
+## Objective
+
+The goal of this assignment is to **understand, analyze, and interpret Length-Weight (L-W) data in fishes**, exploring the biological significance of parameters in L-W relationships, how to fit models to data, and the effects of population differences.
+
+---
+
+## 1. Comparing Different L-W Relationships
+
+Fish L-W relationship is often described by the equation:
+
+$$ W = a L^b $$
+
+where:
+- **W** = Weight
+- **L** = Length
+- **a** = intercept (scaling constant)
+- **b** = slope (shape/curvature)
+
+Below are three curves for different values of `b` (simulated data):
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+set.seed(1)
+L <- seq(5, 70, by=1)
+W_b3 <- 0.01 * L^3      # b = 3 (Isometric)
+W_b2.7 <- 0.01 * L^2.7  # b < 3 (Negative Allometric)
+W_b3.3 <- 0.01 * L^3.3  # b > 3 (Positive Allometric)
+
+plot(L, W_b3, type="l", col="blue", lwd=2, ylim=c(0, max(W_b3, W_b2.7, W_b3.3)), ylab="Weight (g)", xlab="Length (cm)")
+lines(L, W_b2.7, col="red", lwd=2)
+lines(L, W_b3.3, col="green", lwd=2)
+legend("topleft", legend=c("b = 3 (Isometric)", "b < 3 (Negative Allometric)", "b > 3 (Positive Allometric)"), col=c("blue", "red", "green"), lwd=2)
+```
+
+::: callout-important
+
+## Question 1 (2 pts):
+- What does it mean biologically when `b = 3`?
+- How does `b < 3` and `b > 3` alter the weight-growth pattern?
+- In what situations might you expect a fish population to have `b < 3` or `b > 3`?  
+- What species or life stages might show different `b` values, and why?
+:::
+
+---
+
+## 2. Fitting the L-W Model to Data from FSAdata
+
+We'll use the `FSAdata` package for real fish data (install and load if needed):
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(FSAdata)
+library(ggplot2)
+```
+
+We will work with bluegill data from the FSAdata package, which includes multiple lengths (mm) and weight (g) measurements.
+
+
+```{r}
+data(BluegillLM) # Length (mm), Weight (g)
+
+ggplot(BluegillLM, aes(x=sl, y=wght)) +
+  geom_point(color="steelblue") +
+  labs(title="Bluegill Length-Weight Data", x="Standard Length (mm)", y="Weight (g)")+
+  theme_classic()
+```
+
+### Transforming for Linear Model
+
+The L-W relationship is non-linear, but can be linearized by log-transforming:
+
+$$ \log(W) = \log(a) + b \log(L) $$
+
+Fit linear model:
+
+```{r}
+mod <- lm(log10(wght) ~ log10(sl), data=BluegillLM)
+summary(mod)
+```
+
+Plot the linear relationship:
+```{r}
+
+ggplot(BluegillLM, aes(x=log10(sl), y=log10(wght))) +
+  geom_point(color="steelblue") +
+  geom_smooth(method="lm", color="darkred", se=FALSE) +
+  labs(title="Log-Transformed L-W Relationship", x="log10(Standard Length)", y="log10(Weight)")+
+  theme_classic()
+```
+
+
+
+**Interpretation**:
+- The intercept = log(a); slope = b.
+- To get `a`, exponentiate the intercept: `a = 10^intercept`
+- Back-transform to plot actual L-W curve:
+
+```{r}
+a <- 10^coef(mod)[1]
+b <- coef(mod)[2]
+BluegillLM$predicted_wght <- a * BluegillLM$sl^b
+
+ggplot(BluegillLM, aes(x=sl, y=wght)) +
+  geom_point(color="steelblue") +
+  geom_line(aes(y=predicted_wght), color="darkred", size=1) +
+  labs(title="Observed and Predicted L-W Relationship", x="Standard Length (mm)", y="Weight (g)")+
+  theme_classic()
+```
+
+::: callout-important
+## Question 2 (2 pts)
+- Look at your plots, there are two outliers. Do you believe those datapoints are real or an issue with data taking? If they are real, what are some biological explanations for those?
+- What are the estimated values of `a` and `b`?  
+- Is the relationship isometric (`b ≈ 3`), or allometric (`b ≠ 3`)?
+- What biological factors could affect these parameters?
+::: 
+---
+
+## 3. Effect of Food Limitation (Simulated Population)
+
+The following code will simulate a population of the same species (Bluegill), but affected by food limitation (lower weight at length):
+
+```{r}
+a_foodlim <- a * 0.7   # reduce intercept (lower weight)
+b_foodlim <- b         # keep slope similar or even slightly lower
+BluegillLM$wght_foodlim <- a_foodlim * BluegillLM$sl^b_foodlim
+
+# map color to labels inside aes() so ggplot creates a legend
+ggplot() +
+  geom_point(data = BluegillLM, aes(x = sl, y = wght, color = "Observed")) +
+  geom_line(data = BluegillLM, aes(x = sl, y = predicted_wght, color = "Predicted"), size = 1) +
+  geom_line(data = BluegillLM, aes(x = sl, y = wght_foodlim, color = "Food-Limited"), size = 1) +
+  scale_color_manual(name = "Series",
+                     values = c("Observed" = "steelblue",
+                                "Predicted" = "darkred",
+                                "Food-Limited" = "orange")) +
+  labs(title = "Effect of Food Limitation on L-W Relationship",
+       x = "Standard Length (mm)",
+       y = "Weight (g)")+
+  theme_classic()
+```
+
+::: callout-important
+## Question 3 (2 pts):
+- How does food limitation affect the L-W relationship?
+- What do changes in estimated `a` and `b` mean biologically?
+- How would you recognize food limitation in field data?
+:::
+---
+
+## 4. Synthesis and Interpretation
+
+::: callout-important
+## Question 4 (4 pts):
+
+- Why is it important to analyze L-W relationships in fisheries biology?
+- What ecological or management questions can you answer using L-W models?
+- How would you use L-W relationships to monitor fish populations over time?
+- What potential errors or sources of variation should you watch for in L-W data collection and analysis?
+:::
+---
+
+## Submission
+
+Include answers to all questions, code outputs, and plots. 
+
+References:
+- FSAdata package documentation: https://cran.r-project.org/web/packages/FSAdata/

@@ -6,6 +6,9 @@ format:
     toc: true
     toc-depth: 3
     embed-resources: true
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -15,37 +18,63 @@ library(FSA)
 
 ## PSD
 
-PSD stands for "Proportional Stock Density". It essentially means the proportion of fish of stock size that are of quality size or greater. This is a common metric used in fisheries management to assess the health of a fish stock and to make informed decisions about fishing regulations and conservation efforts.
+PSD stands for "Proportional Stock Density". It essentially means the
+proportion of fish of stock size that are of quality size or greater.
+This is a common metric used in fisheries management to assess the
+health of a fish stock and to make informed decisions about fishing
+regulations and conservation efforts.
 
-To calculate PSD, you would typically use the following formula:
-$$ 
+To calculate PSD, you would typically use the following formula: $$ 
 PSD = \left( \frac{\text{Number of fish} \geq \text{quality size}}{\text{Number of fish} \geq \text{stock size}} \right) \times 100
 $$
 
-The length at which a fish is considered to be of "quality size" can vary depending on the species, and we use Gabelhouse lengths. Gabelhouse lengths, developed in 1984, are standardized, minimum total lengths (in mm or inches) used to categorize fish populations into stock, quality, preferred, memorable, and trophy sizes for assessing fish population structure. These categories provide precise, universal metrics for measuring fisheries 
+The length at which a fish is considered to be of "quality size" can
+vary depending on the species, and we use Gabelhouse lengths. Gabelhouse
+lengths, developed in 1984, are standardized, minimum total lengths (in
+mm or inches) used to categorize fish populations into stock, quality,
+preferred, memorable, and trophy sizes for assessing fish population
+structure. These categories provide precise, universal metrics for
+measuring fisheries
 
-Generally, Gabelhouse length categories are as follows:
-- Stock Length: The minimum length at which fish are considered part of the population. 20-26% of trophy size
-- Quality Length: The minimum length at which fish are considered of good eating quality. 26-40% of trophy size
-- Preferred Length: The minimum length at which fish are considered to be of preferred size for anglers. 40-60% of trophy size
-- Memorable Length: The minimum length at which fish are considered to be of memorable size for anglers. 60-80% of trophy size
-- Trophy Length: The minimum length at which fish are considered to be of trophy size for anglers. 80% or more of the maximum size
+Generally, Gabelhouse length categories are as follows: - Stock Length:
+The minimum length at which fish are considered part of the population.
+20-26% of trophy size - Quality Length: The minimum length at which fish
+are considered of good eating quality. 26-40% of trophy size - Preferred
+Length: The minimum length at which fish are considered to be of
+preferred size for anglers. 40-60% of trophy size - Memorable Length:
+The minimum length at which fish are considered to be of memorable size
+for anglers. 60-80% of trophy size - Trophy Length: The minimum length
+at which fish are considered to be of trophy size for anglers. 80% or
+more of the maximum size
 
-The PSD metric is important for fisheries management because it helps to determine the size structure of the fish population. A high PSD indicates that a large proportion of the fish are of quality size or greater, which can be a sign of a healthy fish stock. Conversely, a low PSD may indicate that the fish population is dominated by smaller, less desirable fish, which can be a sign of overfishing or poor habitat conditions.
+The PSD metric is important for fisheries management because it helps to
+determine the size structure of the fish population. A high PSD
+indicates that a large proportion of the fish are of quality size or
+greater, which can be a sign of a healthy fish stock. Conversely, a low
+PSD may indicate that the fish population is dominated by smaller, less
+desirable fish, which can be a sign of overfishing or poor habitat
+conditions.
 
-We can also estimate an RSD if we want to know the proportion of fish that are of memorable size or larger. For RSD we use the following formula:
+We can also estimate an RSD if we want to know the proportion of fish
+that are of memorable size or larger. For RSD we use the following
+formula:
 
 $$
 RSD\text{-}X = \left( \frac{\text{Number of fish} \geq \text{size category X}}{\text{Number of fish} \geq \text{stock size}} \right) \times 100
-$$ 
+$$
 
-:::{.callout-important}
+::: callout-important
 ## Question 1
-In a healthy population, what do you think is the proportion of stock, quality, preferred, memorable, and trophy fish?
-Is it better to use PSD or to do a histogram of size distribution to understand the size structure of a population? Why?
+
+In a healthy population, what do you think is the proportion of stock,
+quality, preferred, memorable, and trophy fish? Is it better to use PSD
+or to do a histogram of size distribution to understand the size
+structure of a population? Why?
 :::
 
-Remember, these metrics use standardized length categories defined for each species (Stock, Quality, Preferred, Memorable, Trophy). Consult `psdVal()` in the `FSA` package.
+Remember, these metrics use standardized length categories defined for
+each species (Stock, Quality, Preferred, Memorable, Trophy). Consult
+`psdVal()` in the `FSA` package.
 
 ```{r show-psd-vals, eval=FALSE}
 library(FSA)
@@ -56,18 +85,22 @@ psdVal("Walleye")
 psdVal("Channel Catfish")
 ```
 
-
 # The Data
 
-For this assignment you will work with electrofishing survey data collected from a reservoir in the Midwest. Four species were sampled: **Bluegill**, **Largemouth Bass**, **Walleye**, and **Channel Catfish**. Total lengths (mm) were recorded for each individual.
+For this assignment you will work with electrofishing survey data
+collected from a reservoir in the Midwest. Four species were sampled:
+**Bluegill**, **Largemouth Bass**, **Walleye**, and **Channel Catfish**.
+Total lengths (mm) were recorded for each individual.
 
-Load the `electrofishing.csv` file from Canvas and read into R in an object called `fish_data`. Then, use `head()` to look at the first few rows of the data. 
+Load the `electrofishing.csv` file from Canvas and read into R in an
+object called `fish_data`. Then, use `head()` to look at the first few
+rows of the data.
 
-:::{.callout-important}
+::: callout-important
 ## Question 2
+
 In a few words, describe the dataset.
 :::
-
 
 ```{r echo=FALSE, result="hide"}
 set.seed(42)
@@ -135,30 +168,38 @@ fish_data <- bind_rows(bluegill, bass, walleye, catfish)
 
 ## Part 1 – Calculating PSD and RSD by Hand
 
-Before using FSA functions, it is important to understand *what* those functions are computing. In this section you will calculate PSD and RSD manually for each species.
+Before using FSA functions, it is important to understand *what* those
+functions are computing. In this section you will calculate PSD and RSD
+manually for each species.
 
 ### Step-by-step workflow (example: Bluegill)
 
-Use `psdVal()` to look up the standard length thresholds, then use logical subsetting to count fish in each category.
+Use `psdVal()` to look up the standard length thresholds, then use
+logical subsetting to count fish in each category.
 
 #### Before you run this code!
-Remember how we created a file with only one of the species (e.g., Monarchs) when we worked with the butterfly data? You will need to do the same thing here for each species.
 
-You can use the same code as before, or also `filter()` from the `dplyr` package to create a new data frame for each species. For example, for Bluegill:
+Remember how we created a file with only one of the species (e.g.,
+Monarchs) when we worked with the butterfly data? You will need to do
+the same thing here for each species.
 
+You can use the same code as before, or also `filter()` from the `dplyr`
+package to create a new data frame for each species. For example, for
+Bluegill:
 
 ```{r filter-bluegill, eval=FALSE}
 library(dplyr)
 bluegill <- fish_data %>% filter(species == "Bluegill")
 ```
 
-This is easier that the other way, but does requires a package (dplyr). You can also do
+This is easier that the other way, but does requires a package (dplyr).
+You can also do
+
 ```{r filter-bluegill-base, eval=FALSE}
 bluegill <- fish_data[fish_data$species == "Bluegill", ]
 ```
 
 Which follows the logic of R more closely, but is a bit more cumbersome.
-
 
 ```{r manual-psd-example}
 # Step 1: retrieve the breakpoints
@@ -184,42 +225,46 @@ round(PSD_bluegill, 1)
 
 ### ✏️ Your Turn
 
-Using the workflow above, complete the following for **all four species**.
+Using the workflow above, complete the following for **all four
+species**.
 
 For each species, calculate:
 
-- **PSD** (quality and above / stock and above)
-- **RSD-P** (preferred and above / stock and above)
-- **RSD-M** (memorable and above / stock and above) — *where applicable*
+-   **PSD** (quality and above / stock and above)
+-   **RSD-P** (preferred and above / stock and above)
+-   **RSD-M** (memorable and above / stock and above) — *where
+    applicable*
 
-Fill in the table like the one below with your results (you can introduce tables in your qmd):
+Fill in the table like the one below with your results (you can
+introduce tables in your qmd):
 
-| Species | N (stock+) | PSD | RSD-P | RSD-M |
-|---------|-----------|-----|-------|-------|
-| Bluegill | | | | |
-| Largemouth Bass | | | | |
-| Walleye | | | | |
-| Channel Catfish | | | | |
+| Species         | N (stock+) | PSD | RSD-P | RSD-M |
+|-----------------|------------|-----|-------|-------|
+| Bluegill        |            |     |       |       |
+| Largemouth Bass |            |     |       |       |
+| Walleye         |            |     |       |       |
+| Channel Catfish |            |     |       |       |
 
-
-:::{.callout-important}
+::: callout-important
 ## Question 3 (10 pts)
+
 Complete the part 1 section
 :::
 
 ## Part 2 – Calculating PSD and RSD with `FSA`
 
-The `FSA` package provides `psdCalc()`, which automates the computations above and adds 95% confidence intervals using the binomial method.
+The `FSA` package provides `psdCalc()`, which automates the computations
+above and adds 95% confidence intervals using the binomial method.
 
 ### Syntax
 
-```r
+``` r
 psdCalc(~tl_mm, data = your_data, species = "Species Name", what = "all")
 ```
 
-- `~tl_mm` — formula referencing the length column  
-- `species` — must match an entry in `psdVal()` exactly  
-- `what = "all"` — returns PSD and all RSD values
+-   `~tl_mm` — formula referencing the length column\
+-   `species` — must match an entry in `psdVal()` exactly\
+-   `what = "all"` — returns PSD and all RSD values
 
 ### Example – Bluegill
 
@@ -227,18 +272,24 @@ psdCalc(~tl_mm, data = your_data, species = "Species Name", what = "all")
 psdCalc(~tl_mm, data = bluegill, species = "Bluegill", what = "all")
 ```
 
-:::{.callout-important}
+::: callout-important
 ## Question 4 (5 pts)
-Estimate PSD and RSD values for all four species using `psdCalc()`. Do the results match your manual calculations? If not, can you explain why?
+
+Estimate PSD and RSD values for all four species using `psdCalc()`. Do
+the results match your manual calculations? If not, can you explain why?
 :::
 
 # Visualizing Size Structure
 
-Visualizing the length-frequency distribution helps us understand *where* fish are concentrated across size categories and how the population is structured.
+Visualizing the length-frequency distribution helps us understand
+*where* fish are concentrated across size categories and how the
+population is structured.
 
 ## Histograms
 
-A length-frequency histogram is one of the most common tools in fisheries science. We will add vertical lines for each PSD breakpoint to provide biological context.
+A length-frequency histogram is one of the most common tools in
+fisheries science. We will add vertical lines for each PSD breakpoint to
+provide biological context.
 
 ### Example – Bluegill
 
@@ -260,10 +311,13 @@ bg_breaks <- psdVal("Bluegill")
   theme_classic()
 ```
 
-
-:::{.callout-important}
+::: callout-important
 ## Question 5 (5 pts)
-Plot the histogram for all species. You can base your code on the one I provided for Bluegill, but make sure to adjust the breakpoints and labels for each species. Describe the size structure of each population based on your histograms.
+
+Plot the histogram for all species. You can base your code on the one I
+provided for Bluegill, but make sure to adjust the breakpoints and
+labels for each species. Describe the size structure of each population
+based on your histograms.
 :::
 
 # Looking at the community
@@ -288,50 +342,71 @@ ggplot(fish_data_stock, aes(x = tl_mm, fill = species, color = species)) +
   theme(legend.position = "bottom")
 ```
 
-:::{.callout-important}
+::: callout-important
 ## Question 6 (1 pts)
-Based on the density plot, are any of the species dominated by small fish or large fish?
+
+Based on the density plot, are any of the species dominated by small
+fish or large fish?
 :::
 
-# Tic-Tac-Toe Plot 
+# Tic-Tac-Toe Plot
 
 (Bluegill & Largemouth Bass)
 
-The **tic-tac-toe plot** is a great way to use the PSD data.
-It visualizes whether the proportion of quality fish for a prey and predator species is the way we want it.
+The **tic-tac-toe plot** is a great way to use the PSD data. It
+visualizes whether the proportion of quality fish for a prey and
+predator species is the way we want it.
 
-Essentially, you, as a manager choose some target PSD values for your two species, in this case Bluegill and Largemouth Bass.
+Essentially, you, as a manager choose some target PSD values for your
+two species, in this case Bluegill and Largemouth Bass.
 
-The target PSD values depends on whether we want a pond with an abundance of panfish, one with balanced populations, or one with larger bass.
+The target PSD values depends on whether we want a pond with an
+abundance of panfish, one with balanced populations, or one with larger
+bass.
 
-The following table shows the target PSD values for each of those scenarios:
-| Scenario | Bluegill PSD | Largemouth Bass PSD |
-|----------|--------------|---------------------|
-| Panfish | 50-80 | 20-40 |
-| Balanced | 20-60 | 40-70 |
-| Big Bass | 10-50 | 50-80 |
+The following table shows the target PSD values for each of those
+scenarios:
 
-We can then use the `ticTacToe()` function from the `FSA` package to visualize where our PSD values fall in relation to those targets.
+| Scenario         | Bluegill PSD | Largemouth PSD |
+|------------------|--------------|----------------|
+| Panfish abundant | 50-80        | 20-40          |
+| Balanced         | 20-60        | 40-70          |
+| Big Bass         | 10-50        | 50-80          |
 
-We can plot the tic-tac-toe section for the "Panfish" scenario as follows:
+We can then use the `ticTacToe()` function from the `FSA` package to
+visualize where our PSD values fall in relation to those targets.
+
+We can plot the tic-tac-toe section for the "Panfish" scenario as
+follows:
+
 ```{r tic-tac-toe}
 tictactoe(predlab="Largemouth Bass", preylab="Bluegill PSD", predobj=c(20,40),preyobj=c(50,80))
 ```
 
-When we want a pond dominated by Panfish, we want a lot of large bluegill, and not too many Largemouth Bass. So, we want our bluegill PSD to be high (50-80), and our bass PSD to be low (20-40). Essentially, we want our PSD values to fall right on the shaded area of the tic-tac-toe plot. If our PSD values fall outside of that area, then we are not meeting the target for that scenario. But! You can tell why
+When we want a pond dominated by Panfish, we want a lot of large
+bluegill, and not too many Largemouth Bass. So, we want our bluegill PSD
+to be high (50-80), and our bass PSD to be low (20-40). Essentially, we
+want our PSD values to fall right on the shaded area of the tic-tac-toe
+plot. If our PSD values fall outside of that area, then we are not
+meeting the target for that scenario. But! You can tell why
 
 We can add our observed PSD values like this:
 
 First, we need the values we observed:
+
 ```{r observed-psd}
 psdCalc(~tl_mm, data = bluegill, species = "Bluegill", what = "all")
 ```
-And we can see that the PSD for bluegill is 38, with a CI spanning from 32 to 44.
+
+And we can see that the PSD for bluegill is 38, with a CI spanning from
+32 to 44.
 
 ```{r observed-psd2}
 psdCalc(~tl_mm, data = bass, species = "Largemouth Bass", what = "all")
 ```
-And we can see that the PSD for Largemouth Bass is 42, with a CI spanning from 35 to 50.
+
+And we can see that the PSD for Largemouth Bass is 42, with a CI
+spanning from 35 to 50.
 
 ```{r tic-tac-toe2}
 library(plotrix)
@@ -341,15 +416,23 @@ plotCI(38, 42, li=32, ui=44, err="x",pch=16,add=TRUE)
 plotCI(38, 42, li=35, ui=50, err="y",pch=16,add=TRUE)
 
 ```
+
 We are simply adding points and CI's on top of the plot
 
-:::{.callout-important}
+::: callout-important
 ## Question 7 (5 pts)
-If you are a manager that wants to create a pond dominated by panfish, do you think the current PSD values for Bluegill and Largemouth Bass are good? Why or why not? What do you need to do to meet the target PSD values for that scenario?
+
+If you are a manager that wants to create a pond dominated by panfish,
+do you think the current PSD values for Bluegill and Largemouth Bass are
+good? Why or why not? What do you need to do to meet the target PSD
+values for that scenario?
 :::
 
-:::{.callout-important}
+::: callout-important
 ## Question 8 (5 pts)
-Plot a tic-tac-toe plot for the "Balanced" scenario. Add your observed PSD values for Bluegill and Largemouth Bass. Do you think the current PSD values are good for a balanced pond? Why or why not? What do you need to do to meet the target PSD values for that scenario?
-:::
 
+Plot a tic-tac-toe plot for the "Balanced" scenario. Add your observed
+PSD values for Bluegill and Largemouth Bass. Do you think the current
+PSD values are good for a balanced pond? Why or why not? What do you
+need to do to meet the target PSD values for that scenario?
+:::
