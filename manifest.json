@@ -1,20 +1,16 @@
+```json
 {
   "version": 1,
   "locale": "en_US.UTF-8",
-  "packages": {
-    "R": {
-      "version": "4.x.x",
-      "repositories": [
-        {
-          "name": "CRAN",
-          "url": "https://cran.rstudio.com/"
-        }
-      ]
-    }
+  "metadata": {
+    "appmode": "shiny",
+    "entrypoint": "app.R"
   },
-  "files": {
-    "app.R": {
-      "checksum": "..."
-    }
+  "r": {
+    "version": "4.3.0"
+  },
+  "packages": {
+    // your package dependencies here
   }
 }
+```
