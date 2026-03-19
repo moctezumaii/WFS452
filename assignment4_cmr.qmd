@@ -21,7 +21,7 @@ Upload your completed Quarto (.qmd) file with all R code and written answers to 
 
 ## Introduction
 
-Capture-Mark-Recapture (CMR) is one of the most widely used methods in fisheries science for estimating the abundance of a population when it is impossible — or impractical — to count every individual directly. The basic idea is simple: you catch a sample of fish, mark them in some way (a fin clip, a tag, a dye), release them back into the water, and then come back later to catch another sample. The proportion of marked fish you recapture in that second sample gives you information about how large the population is.
+Capture-Mark-Recapture (CMR) is one of the most widely used methods in fisheries science for estimating the abundance of a population when it is impossible to count every individual directly. The basic idea is simple: you catch a sample of fish, mark them in some way (a fin clip, a tag, a dye), release them back into the water, and then come back later to catch another sample. The proportion of marked fish you recapture in that second sample gives you information about how large the population is.
 
 Think of it this way: if you marked 100 fish and released them into a lake, and then your second sample of 100 fish contained 50 marked individuals, you'd guess the population was around 200. If only 10 were marked, you'd guess the population was around 1,000.
 
@@ -60,18 +60,18 @@ Trust me on this one: this formula is more reliable than the classic Lincoln-Pet
 
 Use the data from Tuesday for small fish only and implement the Chapman estimator in R to estimate $\hat{N}$:
 
--   \$M = \$ (fish marked and released in first sample)
--   \$C = \$ (fish captured in second sample)
--   \$R = \$ (marked fish recaptured in second sample)
+-   $ M = $ (fish marked and released in first sample)
+-   $ C = $ (fish captured in second sample)
+-   $ R = $ (marked fish recaptured in second sample)
 
 Write your R code in the chunk below and report your estimated population size.
 :::
 
 ```{r}
 # Your code here
-M <- 45  # Number marked in first sample
-C <- 52  # Total captured in second sample
-R <- 12  # Recaptured marked individuals
+M <-   # Number marked in first sample
+C <-   # Total captured in second sample
+R <-   # Recaptured marked individuals
 
 # Chapman estimator -- fill in the formula!
 N_hat <- 
@@ -125,7 +125,7 @@ Interpret the confidence interval you obtained above. What does it mean in plain
 
 ------------------------------------------------------------------------
 
-## Exercise 3: Virtual Simulation — Population Estimation Model (7 pts)
+## Exercise 3: Virtual Simulation -Population Estimation Model (7 pts)
 
 Now let's put this into practice using a virtual simulation. Go to the following link:
 
@@ -133,7 +133,7 @@ Now let's put this into practice using a virtual simulation. Go to the following
 
 This simulation lets you perform mark-recapture experiments in a virtual pond. Read the instructions carefully before starting.
 
-### Part A — Small Pond (3 pts)
+### Part A -Small Pond (3 pts)
 
 Set up the simulation with the following parameters:
 
@@ -172,7 +172,7 @@ CI_lower
 CI_upper
 ```
 
-### Part B — Large Pond (4 pts)
+### Part B -Large Pond (4 pts)
 
 Now change **only the pond size** to **Large pond**. Keep the population size the same (Large). Repeat the exact same procedure: one dip, mark all, release, then one recapture dip.
 
@@ -202,7 +202,7 @@ CI_upper
 
 ------------------------------------------------------------------------
 
-## Exercise 4: Virtual Simulation — Mark-Recapture Model with Traps (8 pts)
+## Exercise 4: Virtual Simulation -Mark-Recapture Model with Traps (8 pts)
 
 Now we are going to use a different, more realistic simulation that uses traps instead of nets. Go to:
 
@@ -297,4 +297,4 @@ Answer the following questions based on your results from Experiments 1, 2, and 
 
 ## Submission Instructions
 
-Upload your completed **RENDERED Quarto (.qmd) file** — with all R code filled in and all written answers — to Canvas. Make sure your file renders without errors before submitting. If something is not working, reach out before the deadline!
+Upload your completed **RENDERED Quarto (.qmd) file** -with all R code filled in and all written answers -to Canvas. Make sure your file renders without errors before submitting. If something is not working, reach out before the deadline!
