@@ -19,17 +19,15 @@ editor: visual
 
 25 pts total.
 
-Upload all code you used to obtain the results
-
-You can answer the questions as comments in your R code using `#` or as a separate word document.
+Upload a rendered quarto file. The rendered file should contain ALL OF THE CODE and all outputs. If that is not present you won't get full credit.
 
 ------------------------------------------------------------------------
 
 ### Packages
 
-The following additional packages are required to complete all of the examples: `FSA` and `ggplot2`.
+The following packages are required to complete all of the examples: `FSA` and `ggplot2`.
 
-We have used `FSA` extensively, it's the one Fisheries package that has pretty much all of the necessary analyses. The package `ggplot2` is great for plotting in R.
+We have used `FSA` extensively, it's the one Fisheries package that has pretty much all of the necessary analyses. The package `ggplot2` is great for plotting in R, we have been using it as well.
 
 ```{r warning=FALSE, message=FALSE}
 
@@ -59,7 +57,7 @@ And $S$ (survival being): $S=1-A$
 Because of the "non-linear", exponential nature of fish mortality, we tend to use the instantaneous mortality rate. These table shows how to estimate the rates and transform interval to instantaneous rates:
 
 | Mortality rates | Total | Fishing | Natural |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Interval | $$
 A = 1-e^{-z} = \mu + \upsilon
 $$ | $$
@@ -80,7 +78,7 @@ $$ |
 ::: callout-important
 ## Remember! 🧠
 
-We use the natural log! every equation with log is the natural log!
+We use the natural log! every equation with log in here is the natural log!
 :::
 
 A cool thing about Z is we can easily estimate the mortality rate for shorter intervals. Imagine $Z_{year}$ is 0.8, then $Z_{month}$ is 0.8/12. Supper handy!
@@ -96,12 +94,14 @@ N12 <- 700                       # Final population
 ::: callout-warning
 ## Question 1 ✏️ 3 points
 
-Estimate using R:
+Estimate using R, with basic functions (use the equations I showed earlier!):
 
 1.  the interval absolute mortality (number of deaths)
 2.  The interval (12 month) mortality rate
 3.  The instantaneous mortality rate
 :::
+
+This shows the results you should get:
 
 ```{r echo=FALSE}
 d <- N0-N12              # Interval absolute mortality (i.e., number of deaths)
@@ -110,6 +110,9 @@ A12 <- d/N0                      # Interval (12 month) mortality rate
 Z12 <- -log(1-A12)            # Instantaneous mortality rate
 ```
 
+But make sure you have the code as well!
+
+\
 Now, suppose we wish to know the fraction of the population remaining, the number of individuals, and the number of deaths at the end of 4 and 8 months intervals. For this, $Z_{12month}$ must be partitioned into 4-month ($Z_{4}$) and 8-month ($Z_{8}$) estimates. This also allows us to estimate the interval mortality rate during 4 months and 8 months.
 
 ::: callout-warning
@@ -185,7 +188,7 @@ What ages are fully recruited to the gear?
 
 ### Preparing Data
 
-Remember that fish have a type 3 survivorship curve. This means their survival is not constant (type 2) and hence, non linear. Therefore, we cannot do a linear regression. However, we can do a log of the linear regression, to "linearize" the data, as per the slide:
+Remember that fish have a type 3 survivorship curve. This means their survival is not constant (type 2) and hence, non linear. Therefore, we cannot do a linear regression. However, we can do a log of the linear regression, to "linearize" the data, as per the figure:
 
 ![Slide 50 of the lecture. See Canvas to download the pdf version](images/clipboard-2941393260.png)
 
