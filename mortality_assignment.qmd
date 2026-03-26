@@ -108,6 +108,10 @@ d <- N0-N12              # Interval absolute mortality (i.e., number of deaths)
 A12 <- d/N0                      # Interval (12 month) mortality rate
 
 Z12 <- -log(1-A12)            # Instantaneous mortality rate
+
+d
+A12
+Z12
 ```
 
 But make sure you have the code as well!

@@ -2500,6 +2500,17 @@ M=\frac{\upsilon Z}{A} = \frac{\upsilon F}\mu
 </div>
 </div>
 <p>This shows the results you should get:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 300</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3566749</code></pre>
+</div>
+</div>
 <p>But make sure you have the code as well!</p>
 <p><br>
 Now, suppose we wish to know the fraction of the population remaining, the number of individuals, and the number of deaths at the end of 4 and 8 months intervals. For this, <span class="math inline">\(Z_{12month}\)</span> must be partitioned into 4-month (<span class="math inline">\(Z_{4}\)</span>) and 8-month (<span class="math inline">\(Z_{8}\)</span>) estimates. This also allows us to estimate the interval mortality rate during 4 months and 8 months.</p>
@@ -2547,7 +2558,7 @@ Now, suppose we wish to know the fraction of the population remaining, the numbe
 <p>The catch-at-age data for one population Walleye (<em>Sander vitreus</em>) is in the <code>catchcurve.csv</code> file. Read the file into a new object named “cdata”.</p>
 <p>Look at the data using:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cdata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cdata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   age catch
 1    1    90
@@ -2564,7 +2575,7 @@ Now, suppose we wish to know the fraction of the population remaining, the numbe
 </div>
 <p>Let’s plot and explore the data. We can plot the data using:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(catch<span class="sc">~</span>age,<span class="at">data=</span>cdata,<span class="at">pch=</span><span class="dv">19</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(catch<span class="sc">~</span>age,<span class="at">data=</span>cdata,<span class="at">pch=</span><span class="dv">19</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2597,8 +2608,8 @@ Now, suppose we wish to know the fraction of the population remaining, the numbe
 </div>
 <p>We need to log transform the catch data:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cdata<span class="sc">$</span>logcatch <span class="ot">&lt;-</span> <span class="fu">log</span>(cdata<span class="sc">$</span>catch)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cdata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cdata<span class="sc">$</span>logcatch <span class="ot">&lt;-</span> <span class="fu">log</span>(cdata<span class="sc">$</span>catch)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>cdata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   age catch logcatch
 1    1    90 4.499810
@@ -2633,8 +2644,8 @@ Now, suppose we wish to know the fraction of the population remaining, the numbe
 <p>Linear regressions in R are performed with <code>lm()</code> where the first argument is a formula of the form <code>y</code>~<code>x</code> and the second (<code>data=</code>) argument is the data frame in which the variables can be found. An optional third (<code>subset=</code>) argument can be used to efficiently create a subset of a data frame to be used for that particular linear model. Here we will use the subset function because we need to only analyze individuals that have been recruited to the gear.</p>
 <p>Let’s run our first catch curve:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cc1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logcatch<span class="sc">~</span>age,<span class="at">data=</span>cdata,<span class="at">subset=</span>age<span class="sc">&gt;=</span><span class="dv">3</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cc1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cc1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logcatch<span class="sc">~</span>age,<span class="at">data=</span>cdata,<span class="at">subset=</span>age<span class="sc">&gt;=</span><span class="dv">3</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cc1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -2655,11 +2666,11 @@ Now, suppose we wish to know the fraction of the population remaining, the numbe
 <p>The estimate of the instantaneous mortality rate (<span class="math inline">\(Z\)</span>) is obtained from the estimated slope.</p>
 <p>We can also, plot our linear regression:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cdata<span class="sc">$</span>W<span class="ot">&lt;-</span><span class="fu">predict.lm</span>(cc1,cdata) <span class="co">#used to obtain the regression</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cdata,<span class="fu">aes</span>(<span class="at">x=</span>age,<span class="at">y=</span>logcatch))<span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>W))<span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cdata<span class="sc">$</span>W<span class="ot">&lt;-</span><span class="fu">predict.lm</span>(cc1,cdata) <span class="co">#used to obtain the regression</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cdata,<span class="fu">aes</span>(<span class="at">x=</span>age,<span class="at">y=</span>logcatch))<span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>W))<span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2683,12 +2694,12 @@ Now, suppose we wish to know the fraction of the population remaining, the numbe
 </div>
 <p>We can observe the coefficients from the regression using:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(cc1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(cc1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>And we can use that to extract <span class="math inline">\(Z\)</span>. We can also extract the confidence intervals using the <code>confint()</code> function. Let’s</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">coef</span>(cc1)[<span class="dv">2</span>]        <span class="co"># 2nd coefficient of model results</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ZCI <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">confint</span>(cc1)[<span class="dv">2</span>,]  <span class="co"># 2nd row of confint results</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">coef</span>(cc1)[<span class="dv">2</span>]        <span class="co"># 2nd coefficient of model results</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ZCI <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">confint</span>(cc1)[<span class="dv">2</span>,]  <span class="co"># 2nd row of confint results</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -2712,20 +2723,20 @@ Now, suppose we wish to know the fraction of the population remaining, the numbe
 <h3 class="anchored" data-anchor-id="the-catch-curve-method-simpler-function">The Catch-Curve Method – Simpler Function</h3>
 <p>We can use the <code>catchCurve()</code> function from the <code>FSA</code> package. Note that the original, not logged, catches are given in this function, which means it is way faster!</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cc3 <span class="ot">&lt;-</span> <span class="fu">catchCurve</span>(catch<span class="sc">~</span>age,cdata,<span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>)                    <span class="co"># unweighted catch-curve</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cc3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>cc3 <span class="ot">&lt;-</span> <span class="fu">catchCurve</span>(catch<span class="sc">~</span>age,cdata,<span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>)                    <span class="co"># unweighted catch-curve</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cc3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Estimate Std. Error  t value   Pr(&gt;|t|)
 Z  0.5112218 0.01560993 32.74978 5.3913e-08
 A 40.0237632         NA       NA         NA</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(cc3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(cc3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     95% LCI    95% UCI
 Z  0.4730256  0.5494179
 A 37.6885900 42.2714237</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cc3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cc3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2741,8 +2752,8 @@ A 37.6885900 42.2714237</code></pre>
 <p>Sometimes we wonder whether two different lakes have a difference in survival. Comparing instantaneous mortality rates (<span class="math inline">\(Z\)</span>) for two or more populations is equivalent to comparing the slopes of the catch-curve regression lines. In the file are catch-at-age data for two populations that fully recruited to the gear at age-2. The R code to calculate and compare the slopes of the catch-curve regression lines is given below.</p>
 <p>Read the data:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>twolakes<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;twolakes.csv&quot;</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>twolakes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>twolakes<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;twolakes.csv&quot;</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>twolakes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   age catch lake logcatch
 1    1   433    A 6.070738
@@ -2779,16 +2790,16 @@ A 37.6885900 42.2714237</code></pre>
 </div>
 <p>We can run the model as we did before, just now, we need to add the effect of lake:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logcatch<span class="sc">~</span>age<span class="sc">*</span>lake,<span class="at">data=</span>twolakes,<span class="at">subset=</span>age<span class="sc">&gt;=</span><span class="dv">2</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#anova(lm1)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logcatch<span class="sc">~</span>age<span class="sc">*</span>lake,<span class="at">data=</span>twolakes,<span class="at">subset=</span>age<span class="sc">&gt;=</span><span class="dv">2</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#anova(lm1)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>And we can plot the results:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>twolakes<span class="sc">$</span>W<span class="ot">&lt;-</span><span class="fu">predict.lm</span>(lm1,twolakes) <span class="co">#used to obtain the regression</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(twolakes,<span class="fu">aes</span>(<span class="at">x=</span>age,<span class="at">y=</span>logcatch,<span class="at">col=</span>lake))<span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>W))<span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>twolakes<span class="sc">$</span>W<span class="ot">&lt;-</span><span class="fu">predict.lm</span>(lm1,twolakes) <span class="co">#used to obtain the regression</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(twolakes,<span class="fu">aes</span>(<span class="at">x=</span>age,<span class="at">y=</span>logcatch,<span class="at">col=</span>lake))<span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>W))<span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2815,7 +2826,7 @@ A 37.6885900 42.2714237</code></pre>
 </div>
 <p>Finally, we can run an ANCOVA:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Run the ANOVA and answer:</p>
 <div class="callout callout-style-default callout-warning callout-titled">
