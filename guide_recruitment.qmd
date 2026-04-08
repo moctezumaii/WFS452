@@ -1,0 +1,303 @@
+---
+title: "Guide: Fitting Recruitment Curves in R"
+author: "Dr. Alejandro Molina-Moctezuma"
+format:
+  html:
+    self-contained: true
+    toc: true
+    toc_depth: 2
+editor: visual
+---
+
+## Introduction
+
+This guide walks you through how to fit **Beverton-Holt** and **Ricker** stock-recruitment curves in R. You will use the `FSA` package, which is the go-to R package for fisheries stock assessment analyses.
+
+By the end of this guide you should be able to:
+
+1.  Understand what spawner-recruit data looks like.
+2.  Know the difference between the Beverton-Holt and Ricker models.
+3.  Fit both models in R using `nls()`.
+4.  Compare the models using an ANOVA.
+5.  Plot the fitted curves on top of your data.
+
+## What Does Spawner-Recruit Data Look Like?
+
+Stock-recruitment data typically comes as a table (`.csv` file) with the following columns:
+
+| Column       | Description                                                                                                       |
+|------------------|------------------------------------------------------|
+| **year**     | The year the observation was made                                                                                 |
+| **stock**    | A measure of spawner abundance (e.g., CPUE of adult fish, number of spawners, or biomass of spawning adults)      |
+| **recruits** | A measure of recruitment (e.g., density of age-0 fish, number of juveniles caught, or an index of young-of-year)  |
+
+Each row represents one year of data. You need **multiple years** of paired spawner–recruit observations. Generally, having at least 15–20 years of data is helpful for fitting non-linear models.
+
+Here is an example of what the first few rows might look like:
+
+| year | stock  | recruits |
+|------|--------|----------|
+| 2000 | 54.48  | 43.08    |
+| 2001 | 100.18 | 25.39    |
+| 2002 | 112.68 | 48.62    |
+| 2003 | 52.75  | 64.18    |
+
+## The Recruitment Curves
+
+### What is a Recruitment Curve?
+
+A recruitment curve (or stock-recruitment model) describes the relationship between the number of spawners (stock) and the number of offspring that survive to a specific life stage (recruits). These models are fundamental in fisheries science because they help us understand how fish populations replenish themselves and how much harvesting a population can sustain.
+
+### Beverton-Holt Model
+
+The Beverton-Holt model assumes that recruitment **increases with spawner abundance but eventually levels off** at an asymptote. In other words, at very high spawner densities, adding more spawners does not increase recruitment because of density-dependent effects such as competition for food and habitat.
+
+The equation is:
+
+$$R = \frac{\alpha S}{1 + \beta S}$$
+
+Where:
+
+-   $R$ = number of recruits
+-   $S$ = spawner abundance (stock)
+-   $\alpha$ = the maximum recruitment rate per spawner at low stock sizes (slope near the origin)
+-   $\beta$ = a parameter that controls how quickly recruitment approaches the asymptote
+
+**Key feature:** Recruitment reaches a **plateau** — it never decreases, no matter how many spawners there are.
+
+### Ricker Model
+
+The Ricker model also assumes density-dependent recruitment, but with an important difference: at **very high spawner densities, recruitment actually decreases**. This can happen because of cannibalism, disease, or intense competition among offspring.
+
+The equation is:
+
+$$R = \alpha S \cdot e^{-\beta S}$$
+
+Where:
+
+-   $R$ = number of recruits
+-   $S$ = spawner abundance (stock)
+-   $\alpha$ = recruits per spawner at low stock sizes
+-   $\beta$ = the density-dependent parameter controlling the rate of decline at high stock sizes
+
+**Key feature:** Recruitment **peaks at an intermediate spawner abundance and then declines** — forming a dome shape.
+
+### Visual Comparison
+
+The figure below shows the general shape of both recruitment curves:
+
+![Recruitment curve shapes](images/clipboard-2783297451.png)
+
+The **Beverton-Holt** curve approaches an asymptote (flat line) while the **Ricker** curve rises and then falls at high spawner densities.
+
+## Step-by-Step Guide to Fitting Recruitment Curves in R
+
+### Step 1: Load the Required Package
+
+We will use the `FSA` package. Make sure it is installed:
+```{r eval=FALSE}
+install.packages("FSA")  # only run this once
+```
+
+Load the package:
+```{r eval=FALSE}
+library(FSA)
+```
+
+### Step 2: Load Your Data
+
+Your data should be a `.csv` file with columns for `year`, `stock`, and `recruits`. Load it using `read.csv()`:
+
+```{r eval=FALSE}
+mydata <- read.csv("recruitment_data.csv")
+```
+
+### Step 3: Explore the Data
+
+Always explore your data before running any model:
+
+```{r eval=FALSE}
+head(mydata)
+str(mydata)
+summary(mydata)
+```
+
+You should check:
+
+-   How many observations (rows) do you have?
+-   Are the column names correct?
+-   Are there any missing values (`NA`)?
+
+### Step 4: Plot the Raw Data
+
+Before fitting any model, **always** plot your data:
+
+```{r eval=FALSE}
+plot(recruits ~ stock, data = mydata,
+     pch = 19, col = "darkblue",
+     xlab = "Stock (Spawner Abundance)",
+     ylab = "Recruits",
+     main = "Stock-Recruitment Data")
+```
+
+This scatter plot will give you an initial idea of whether the data looks like it follows a Beverton-Holt pattern (leveling off) or a Ricker pattern (dome-shaped).
+
+### Step 5: Log-Transform the Recruits
+
+Because stock-recruitment relationships are non-linear, we log-transform the recruits to help with model fitting:
+
+```{r eval=FALSE}
+mydata$logR <- log(mydata$recruits)
+```
+
+::: callout-important
+## Remember!
+
+In R, `log()` is the **natural logarithm** (ln). This is the same as `LN()` in Excel.
+:::
+
+### Step 6: Find Starting Values
+
+Non-linear models (like Beverton-Holt and Ricker) need good **starting values** for the parameters $\alpha$ and $\beta$. The `FSA` package has a handy function for this:
+
+#### Starting values for Beverton-Holt:
+
+```{r eval=FALSE}
+bh_starts <- srStarts(recruits ~ stock, data = mydata, type = "BevertonHolt", param = 1)
+unlist(bh_starts)
+```
+
+#### Starting values for Ricker:
+
+```{r eval=FALSE}
+ri_starts <- srStarts(recruits ~ stock, data = mydata, type = "Ricker", param = 1)
+unlist(ri_starts)
+```
+
+::: callout-note
+## What are starting values?
+
+When fitting a non-linear model, R needs an initial guess for the parameters. It then iteratively improves these guesses until it finds the combination that best fits the data. Good starting values help the algorithm converge (find a solution) faster and more reliably.
+:::
+
+### Step 7: Fit the Beverton-Holt Model
+
+We define the model formula and fit it using `nls()` (non-linear least squares):
+
+```{r eval=FALSE}
+# Define the Beverton-Holt model on the log scale
+bh_formula <- logR ~ log((a * stock) / (1 + b * stock))
+
+# Fit the model
+bh_fit <- nls(bh_formula, data = mydata, start = bh_starts)
+
+# Look at the results
+summary(bh_fit)
+```
+
+The `summary()` output will show you the estimated values of $\alpha$ (`a`) and $\beta$ (`b`), along with standard errors and p-values.
+
+### Step 8: Fit the Ricker Model
+
+```{r eval=FALSE}
+# Define the Ricker model on the log scale
+ri_formula <- logR ~ log(a * stock * exp(-b * stock))
+
+# Fit the model
+ri_fit <- nls(ri_formula, data = mydata, start = ri_starts)
+
+# Look at the results
+summary(ri_fit)
+```
+
+### Step 9: Fit the Density-Independent (Linear) Model
+
+For comparison, it is useful to also fit a simple density-independent model where recruitment is proportional to stock size:
+
+$$R = \alpha S$$
+
+```{r eval=FALSE}
+# Define the density-independent model
+di_formula <- logR ~ log(a * stock)
+
+# Use only the alpha starting value
+di_starts <- bh_starts[1]
+
+# Fit the model
+di_fit <- nls(di_formula, data = mydata, start = di_starts)
+
+# Look at the results
+summary(di_fit)
+```
+
+### Step 10: Compare Models with ANOVA
+
+We can compare all three models using an ANOVA to determine if the more complex models (Beverton-Holt, Ricker) provide a significantly better fit than the simpler density-independent model:
+
+```{r eval=FALSE}
+anova(di_fit, bh_fit, ri_fit)
+```
+
+::: callout-tip
+## Interpreting the ANOVA
+
+-   A low **p-value** (e.g., p \< 0.05) for a more complex model suggests it fits significantly better than the simpler model.
+-   If the p-value is **not significant**, the simpler model may be sufficient — adding extra parameters does not improve the fit enough to justify the added complexity.
+:::
+
+### Step 11: Plot the Fitted Curves
+
+Finally, overlay the fitted recruitment curves on your scatter plot:
+
+```{r eval=FALSE}
+# Plot the raw data
+plot(recruits ~ stock, data = mydata,
+     pch = 19, col = "darkgray",
+     xlab = "Stock (Spawner Abundance)",
+     ylab = "Recruits",
+     main = "Stock-Recruitment Models")
+
+# Add the Beverton-Holt curve (red)
+curve((coef(bh_fit)[1] * x) / (1 + coef(bh_fit)[2] * x),
+      from = 0, to = max(mydata$stock) * 1.1,
+      col = "red", lwd = 2, add = TRUE)
+
+# Add the Ricker curve (blue)
+curve(coef(ri_fit)[1] * x * exp(-coef(ri_fit)[2] * x),
+      from = 0, to = max(mydata$stock) * 1.1,
+      col = "blue", lwd = 2, add = TRUE)
+
+# Add the density-independent curve (black)
+curve(coef(di_fit)[1] * x,
+      from = 0, to = max(mydata$stock) * 1.1,
+      col = "black", lwd = 2, add = TRUE)
+
+# Add a legend
+legend("topleft",
+       legend = c("Beverton-Holt", "Ricker", "Density-Independent"),
+       col = c("red", "blue", "black"),
+       lwd = 2, cex = 0.8)
+```
+
+## Summary
+
+| Step | What You Do                            | R Function / Code               |
+|------------------|----------------------------|--------------------------|
+| 1    | Load `FSA` package                     | `library(FSA)`                   |
+| 2    | Read the data                          | `read.csv()`                     |
+| 3    | Explore the data                       | `head()`, `str()`, `summary()`   |
+| 4    | Plot raw data                          | `plot(recruits ~ stock)`         |
+| 5    | Log-transform recruits                 | `log()`                          |
+| 6    | Get starting values                    | `srStarts()`                     |
+| 7    | Fit Beverton-Holt                      | `nls()`                          |
+| 8    | Fit Ricker                             | `nls()`                          |
+| 9    | Fit density-independent model          | `nls()`                          |
+| 10   | Compare models                         | `anova()`                        |
+| 11   | Plot fitted curves                     | `curve()` + `legend()`           |
+
+## Tips
+
+-   **Always plot your data first.** Looking at the scatter plot before fitting models will give you intuition about which model might be appropriate.
+-   **Check your starting values.** If `nls()` gives you an error about convergence, try adjusting your starting values.
+-   **Log-transform the response variable.** This helps stabilize variance and makes model fitting more reliable.
+-   **Neither model is always "correct."** The best model depends on the biology of the species and the data at hand. Use the ANOVA and visual inspection to guide your decision.
