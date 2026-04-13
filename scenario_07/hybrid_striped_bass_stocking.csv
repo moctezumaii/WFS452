@@ -1,0 +1,19 @@
+# hybrid_striped_bass_stocking.csv
+# Millstone Reservoir - Hybrid Striped Bass Stocking Records
+# Columns:
+#   year: Year of stocking (integer, YYYY)
+#   stocking_date: Date fish were stocked (YYYY-MM-DD)
+#   number_stocked: Number of fish stocked
+#   mean_tl_mm: Mean total length of stocked fish in mm
+#   life_stage: Life stage at stocking (character: fingerling, phase_II, advanced)
+# Units: length in mm
+# Missing values coded as NA
+year,stocking_date,number_stocked,mean_tl_mm,life_stage
+2010,2010-06-12,14554,62,phase_II
+2012,2012-06-14,12627,75,phase_II
+2014,2014-06-05,8727,70,phase_II
+2016,2016-06-06,14236,70,phase_II
+2018,2018-06-07,10367,71,phase_II
+2020,2020-06-02,9119,63,phase_II
+2022,2022-06-09,12841,62,phase_II
+2024,2024-06-09,14033,60,phase_II
