@@ -1,0 +1,46 @@
+# Scenario 04: Coldwater Stream Trout Fishery and Habitat Assessment
+
+## Site Description
+
+- **Water body:** Elk Fork Creek (12.5-mile study reach)
+- **State/Region:** Northern Appalachian region
+- **Watershed area:** 28 square miles
+- **Stream width (mean):** 25 feet
+- **Stream type:** Second-order, freestone, coldwater
+
+## Main Task
+
+Elk Fork Creek historically supported a self-sustaining wild brown trout population, but recent electrofishing surveys show declining catch rates and reduced size structure. At the same time, continuous temperature and dissolved oxygen monitoring suggest that summer thermal stress may be increasing. Land use changes in the watershed, including timber harvest, road construction, and residential development, may be contributing to habitat degradation. Your team will analyze fish population data and environmental monitoring data to evaluate the status of the trout fishery and develop a management plan that integrates fish, habitat, and human dimensions.
+
+## Biological Background
+
+Brown trout are the primary coldwater species in Elk Fork Creek. Brook trout are present in headwater tributaries but are rarely captured in the main stem study reach. Other species include sculpin, blacknose dace, creek chub, and white sucker. Benthic macroinvertebrate communities have not been formally assessed but are assumed to be sensitive to sedimentation and thermal changes. Trout spawning occurs in the fall, and recruitment success is thought to depend on gravel quality and winter base flows.
+
+## Management Context
+
+- A local chapter of Trout Unlimited has advocated for catch-and-release regulations on a portion of the creek.
+- Current regulations allow a 5-fish daily limit with a 7-inch minimum length.
+- Landowners along the creek have mixed opinions about public access and stream restoration.
+- A timber company owns approximately 40% of the watershed and has recently completed a harvest operation near the riparian corridor.
+- The state has identified this stream as a high-priority coldwater resource.
+
+## Management Goal Prompt
+
+Your team must propose a long-range management goal that addresses declining trout populations, thermal habitat concerns, and stakeholder interests along Elk Fork Creek.
+
+## Datasets Included
+
+- **trout_population.csv**: Annual electrofishing survey data for brown trout from 2013 to 2025, including individual lengths and weights, plus site-level CPUE estimates.
+- **stream_temperature.csv**: Continuous daily mean and maximum water temperature from two monitoring stations (upstream and downstream) from 2015 to 2025.
+- **stream_habitat.csv**: Habitat survey data collected at five sites during summers of 2015, 2018, 2021, and 2024, including substrate composition, canopy cover, pool depth, and large woody debris counts.
+
+## Minimum Analyses to Consider
+
+- Summarize trout CPUE trends by year and by site.
+- Construct length-frequency distributions and assess size structure changes over time.
+- Calculate weight-length relationships and relative condition.
+- Summarize daily maximum temperatures and count the number of days exceeding thermal stress thresholds for brown trout (e.g., 20 C and 25 C).
+- Compare upstream versus downstream temperature patterns.
+- Summarize habitat metrics across sites and years and identify degradation trends.
+- Explore relationships between temperature or habitat variables and trout abundance or size.
+- Review published thermal tolerance and habitat requirements for brown trout.

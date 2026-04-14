@@ -1,0 +1,172 @@
+---
+title: "Fishery Management Plan - Assignment Instructions"
+format: html
+---
+
+## Overview
+
+The purpose of this assignment is for you to develop a management plan for the fishery you chose that will direct activities for the near future. A fishery management plan requires three major tasks:
+
+1. Develop an information base from the data you have and a search of relevant scientific literature.
+2. Develop a goal and an accompanying management plan for your fishery.
+3. Prepare a written management plan (expanded outline) and report on your management plan in an oral presentation to the class.
+
+Your team will be evaluated as a group, and team members will evaluate the performance of each individual in the group. Your grade will be based on a written expanded outline of your management plan, an oral presentation, and peer evaluations.
+
+## How to Choose a Scenario
+
+Each team will choose one of seven available scenarios. To make your choice:
+
+1. Browse each scenario folder (scenario_01 through scenario_07).
+2. Read the `scenario_overview.md` file in each folder to understand the setting, species, management context, and available data.
+3. Open the CSV dataset(s) in each folder. Each CSV file contains a data dictionary in commented header rows (lines starting with `#`) that describe every column, its units, and what the values represent.
+4. Discuss as a team which scenario is the best match for your interests and strengths.
+5. Once your team selects a scenario, notify the instructor so no two teams work on the same one (unless otherwise permitted).
+
+## What You Must Decide
+
+Your team is responsible for developing your own management goal, objectives, and actions. The scenario folders provide data and context, not answers. Specifically, your team must:
+
+- Propose a long-range management goal appropriate to the fishery and its stakeholders.
+- Diagnose problems and potentials based on your analysis of the data and your literature search.
+- Set quantifiable objectives with dates for accomplishment.
+- Prescribe management actions that address fish, habitat, and people.
+- Design an implementation timeline and an evaluation plan.
+
+No "correct" goal or set of objectives is provided. Different teams working on the same scenario could reasonably propose different management directions.
+
+## Required Components of the Management Plan Expanded Outline
+
+Your expanded outline must follow the eight steps of the management process listed below. Each step should be developed with enough detail that a reader can evaluate your plan without attending the oral presentation.
+
+### Step 1. Management Goal
+
+- State a long-range vision of the future based on the goal of your management.
+- Articulate a clear view of the future that anyone can understand.
+
+### Step 2. Analysis of Resources
+
+- Physical attributes, such as surface area, watershed area, littoral area, thermal stratification, and other key features. These may or may not be available in your data; you may need to do an online search.
+- Chemical attributes, such as alkalinity, hardness, dissolved oxygen, and pH. These may or may not be available in your data; you may need to do an online search.
+- Biological attributes, such as fish community, plant community, and non-native species. These may or may not be available in your data; you may need to do an online search.
+- Human attributes, such as angling pressure, angling regulations, land use in the watershed, and shoreline development. These may or may not be available in your data; you may need to do an online search.
+
+### Step 3. Diagnosis of Problems and Potentials
+
+- Diagnose relevant problems with the habitat, fish, or human users.
+- Identify the resource potential that might overcome each problem.
+
+### Step 4. Management Objectives and Actions
+
+- Set quantifiable objectives with dates for accomplishment for each.
+- Each objective should relate to a resource problem identified in the previous step.
+- Prescribe one or more management actions to achieve each objective.
+- Management actions related to fish, habitat, and people (for each objective) are more likely to succeed than management actions related only to fish, habitat, or people.
+
+### Step 5. Organization of People, Equipment, and Budgets
+
+- Describe needs for human effort (time = money).
+- Describe needs for equipment (purchases and operation = money).
+- Describe needs for funding (supplies and travel = money).
+
+### Step 6. Implementation Plan
+
+- Design implementation so that effects of each management action can be determined.
+- Prescribe a timeline for implementing the management plan.
+- Indicate when each management action will be implemented.
+
+### Step 7. Evaluation Plan
+
+- Describe how achievement of management objectives will be evaluated.
+- Describe interim evaluations that may be needed to evaluate progress.
+
+### Step 8. Maintenance Plan
+
+- Describe how the management plan will be maintained.
+- Describe how the management plan will be updated.
+
+## Information Search and Use of Scientific Literature
+
+The data you obtained on your fishery should be analyzed to provide an information base for your decision-making process. You should also use library resources to locate information on similar fisheries. Some information may be available in technical journals, such as:
+
+- Transactions of the American Fisheries Society
+- North American Journal of Fisheries Management
+- Canadian Journal of Fisheries and Aquatic Sciences
+
+Cite all references, tables, and figures in the text of your plan. Format citations according to the North American Journal of Fisheries Management Guide for Authors.
+
+## Data Analysis and Interpretation
+
+Your team should use the datasets provided in your scenario folder to build the information base for your plan. Depending on the scenario, you should aim to:
+
+- Estimate population parameters such as catch per unit effort (CPUE), relative abundance, growth rates, and mortality rates.
+- Compare metrics across years, seasons, sites, or species as appropriate.
+- Summarize community composition using indices of diversity, species richness, or proportional abundance.
+- Characterize size structure using length-frequency distributions, proportional size distribution (PSD), or related metrics.
+- Summarize environmental conditions and identify trends, seasonal patterns, or potential habitat limitations.
+- Summarize harvest, angling effort, and angler satisfaction if creel data are available.
+- Visualize patterns and relationships using clear figures (scatter plots, bar charts, box plots, time series plots).
+
+Not every analysis listed above will apply to every scenario. Choose the analyses that are relevant to your fishery and the data you have.
+
+## Expectations for Tables and Figures
+
+- Include tables and figures that support your analysis and your plan.
+- Each table and figure must be cited in the text of the expanded outline.
+- Tables and figures should be numbered sequentially (Table 1, Table 2, ...; Figure 1, Figure 2, ...).
+- Provide informative titles and axis labels.
+- Format references, tables, and figures according to the North American Journal of Fisheries Management Guide for Authors.
+
+## Presentation Requirements
+
+- Prepare an oral presentation based on the outline of your management plan.
+- The oral report should include all major elements of the written plan, but may also include materials such as photos that are not included in the written plan.
+- All team members must participate in preparation of the oral report and in its delivery.
+- PowerPoint presentations are required.
+- The presentation should be no longer than 15 minutes.
+- Audience questions should be no longer than 5 minutes (total time = 20 minutes).
+- Attendance is mandatory for all presentations.
+
+## Evaluation Rubric Summary
+
+Your written plan and presentation will be evaluated using the scoring breakdown below.
+
+### Expanded Outline (100 points)
+
+| Component                          | Points |
+|------------------------------------|--------|
+| Goal                               | 10     |
+| Analysis of Resource (if possible) | 10     |
+| Diagnosis of Problems & Potentials | 10     |
+| Management Program                 | 25     |
+| Organization of Program            | 10     |
+| Implementation of Program          | 5      |
+| Evaluate and Maintain Program      | 5      |
+| References, Tables, & Figures      | 10     |
+| Style & Clarity                    | 10     |
+| Evaluation from group              | 10     |
+| **TOTAL**                          | **100**|
+
+### Presentation (50 points)
+
+| Component              | Points |
+|------------------------|--------|
+| Presenter appearance   | 5      |
+| Delivery               | 5      |
+| Organization           | 5      |
+| Visuals                | 10     |
+| Substance              | 20     |
+| Questions              | 5      |
+| Evaluation from group  | 5 (extra credit) |
+| **TOTAL**              | **50** |
+
+### Grand Total: 150 points (+5 extra credit)
+
+Team-member evaluations are due on the date of your oral presentation. Evaluations are confidential and will never be disclosed to anyone else.
+
+## Due Dates
+
+- **Expanded Outline of Management Plan:** Thursday, May 1st
+- **Oral Presentations:** May 6th
+
+Late plans will not be accepted.

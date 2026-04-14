@@ -1,0 +1,46 @@
+# Scenario 02: Warmwater Fish Community Assessment
+
+## Site Description
+
+- **Water body:** Copperhead Lake
+- **State/Region:** Upper Midwest
+- **Surface area:** 680 acres
+- **Mean depth:** 18 feet
+- **Maximum depth:** 52 feet
+
+## Main Task
+
+Copperhead Lake supports a diverse warmwater fish community that includes walleye, yellow perch, bluegill, largemouth bass, northern pike, and black crappie. The state fisheries agency has conducted standardized multi-species gill net and trap net surveys every two years since 2010. Recent surveys suggest shifts in community composition, with some species increasing in relative abundance while others appear to be declining. Your team will analyze these community data to assess trends in species composition, relative abundance, and community balance, and then develop a management plan that maintains or improves the overall fishery.
+
+## Biological Background
+
+Copperhead Lake is a natural glacial lake with moderate fertility. The littoral zone is dominated by emergent and submergent aquatic vegetation. Walleye were historically stocked but have been naturally reproducing for at least two decades. Northern pike use shallow marshes for spawning. The lake also contains white sucker, rock bass, pumpkinseed, and Iowa darter. Cisco were historically present but have not been captured in surveys since 2016.
+
+## Management Context
+
+- Walleye and panfish are the primary targets for recreational anglers.
+- A local lake association is active and concerned about declining walleye catches.
+- Northern pike regulations were liberalized three years ago to encourage harvest.
+- There is moderate lakeshore development with some impervious surface runoff.
+- Water clarity has decreased slightly over the monitoring period.
+- No invasive aquatic species have been confirmed, but Eurasian watermilfoil has been found in a neighboring lake.
+
+## Management Goal Prompt
+
+Your team must propose a long-range management goal that addresses changes in fish community composition and balances the interests of anglers who target different species at Copperhead Lake.
+
+## Datasets Included
+
+- **community_gillnet.csv**: Standardized gill net survey data from 2010 to 2024, with catch by species, net type, set duration, and site.
+- **community_trapnet.csv**: Standardized trap net survey data from 2010 to 2024, with catch by species, net type, set duration, and site.
+- **water_clarity.csv**: Secchi depth, surface temperature, and chlorophyll-a measurements from May through September for each survey year.
+
+## Minimum Analyses to Consider
+
+- Calculate catch per unit effort (CPUE) for each species by gear type and year.
+- Examine trends in relative abundance for key species over time.
+- Calculate community-level indices (species richness, Shannon diversity, or similar metrics).
+- Assess proportional abundance of predator versus prey species.
+- Summarize water clarity and productivity trends over time.
+- Identify species that may be increasing or declining and consider possible explanations.
+- Compare community patterns to expectations from published literature on similar lakes.
