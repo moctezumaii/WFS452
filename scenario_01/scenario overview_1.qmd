@@ -1,4 +1,7 @@
-# Scenario 01: Largemouth Bass Population Assessment
+---
+title: "Scenario 01: Largemouth Bass Population Assessment"
+format: pdf
+---
 
 ## Site Description
 

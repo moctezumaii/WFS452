@@ -1,4 +1,7 @@
-# Scenario 02: Warmwater Fish Community Assessment
+---
+title: "Scenario 02: Warmwater Fish Community Assessment"
+format: pdf
+---
 
 ## Site Description
 

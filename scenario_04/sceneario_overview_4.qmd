@@ -1,4 +1,7 @@
-# Scenario 04: Coldwater Stream Trout Fishery and Habitat Assessment
+---
+title: "Scenario 04: Coldwater Stream Trout Fishery and Habitat Assessment"
+format: pdf
+---
 
 ## Site Description
 

@@ -1,4 +1,7 @@
-# Scenario 06: Invasive Species and Water Quality in a Small Lake
+---
+title: "Scenario 06: Invasive Species and Water Quality in a Small Lake"
+format: pdf
+---
 
 ## Site Description
 

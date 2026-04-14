@@ -1,6 +1,6 @@
 ---
 title: "Fishery Management Plan - Assignment Instructions"
-format: html
+format: pdf
 ---
 
 ## Overview
@@ -18,10 +18,10 @@ Your team will be evaluated as a group, and team members will evaluate the perfo
 Each team will choose one of seven available scenarios. To make your choice:
 
 1. Browse each scenario folder (scenario_01 through scenario_07).
-2. Read the `scenario_overview.md` file in each folder to understand the setting, species, management context, and available data.
+2. Read the `scenario_overview` file in each folder to understand the setting, species, management context, and available data.
 3. Open the CSV dataset(s) in each folder. Each CSV file contains a data dictionary in commented header rows (lines starting with `#`) that describe every column, its units, and what the values represent.
 4. Discuss as a team which scenario is the best match for your interests and strengths.
-5. Once your team selects a scenario, notify the instructor so no two teams work on the same one (unless otherwise permitted).
+5. Once your team selects a scenario, notify me so no two teams work on the same one.
 
 ## What You Must Decide
 
@@ -44,8 +44,9 @@ Your expanded outline must follow the eight steps of the management process list
 - State a long-range vision of the future based on the goal of your management.
 - Articulate a clear view of the future that anyone can understand.
 
-### Step 2. Analysis of Resources
+### Step 2. Analysis of Resourc
 
+Add the ones that are possible:
 - Physical attributes, such as surface area, watershed area, littoral area, thermal stratification, and other key features. These may or may not be available in your data; you may need to do an online search.
 - Chemical attributes, such as alkalinity, hardness, dissolved oxygen, and pH. These may or may not be available in your data; you may need to do an online search.
 - Biological attributes, such as fish community, plant community, and non-native species. These may or may not be available in your data; you may need to do an online search.
@@ -166,7 +167,7 @@ Team-member evaluations are due on the date of your oral presentation. Evaluatio
 
 ## Due Dates
 
-- **Expanded Outline of Management Plan:** Thursday, May 1st
-- **Oral Presentations:** May 6th
+- **Expanded Outline of Management Plan:** Monday, May 4th 
+- **Oral Presentations:** May 5th
 
 Late plans will not be accepted.

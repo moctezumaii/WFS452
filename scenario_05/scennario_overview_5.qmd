@@ -1,4 +1,7 @@
-# Scenario 05: Walleye Harvest and Creel Survey Management
+---
+title: "Scenario 05: Walleye Harvest and Creel Survey Management"
+format: pdf
+---
 
 ## Site Description
 

@@ -1,5 +1,7 @@
-# Scenario 07: Urban Reservoir Mixed Warmwater Fishery
-
+---
+title: "Scenario 07: Urban Reservoir Mixed Warmwater Fishery"
+format: pdf
+---
 ## Site Description
 
 - **Water body:** Millstone Reservoir

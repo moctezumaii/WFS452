@@ -1,5 +1,7 @@
-# Scenario 03: Black Crappie Size Structure and Harvest Management
-
+---
+title: "Scenario 03: Black Crappie Size Structure and Harvest Management"
+format: pdf
+---
 ## Site Description
 
 - **Water body:** Silver Creek Impoundment
