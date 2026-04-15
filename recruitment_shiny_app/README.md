@@ -13,20 +13,8 @@ No other packages are needed.
 
 ## How to Run
 
-From R (or RStudio), set your working directory to the repository root and run:
+From RStudio, open the file and click Run App
 
-```r
-library(shiny)
-source("recruitment_shiny_app/app_ui.R")
-source("recruitment_shiny_app/app_server.R")
-shinyApp(ui = ui, server = server)
-```
-
-Alternatively, from the command line:
-
-```bash
-Rscript -e 'library(shiny); source("recruitment_shiny_app/app_ui.R"); source("recruitment_shiny_app/app_server.R"); shinyApp(ui = ui, server = server)'
-```
 
 ## What the App Does
 
