@@ -25,6 +25,7 @@ server <- function(input, output, session) {
       if (stability >= 1) return(p_base)
       p_bad <- 1 - stability
       if (runif(1) < p_bad) {
+        # Shock multiplier: 0.1–0.7 reduces survival to 10–70% of baseline
         q <- runif(1, 0.1, 0.7)
         return(min(max(p_base * q, 0), 1))
       }
@@ -80,6 +81,7 @@ server <- function(input, output, session) {
     cat("5th percentile   :", round(quantile(r, 0.05), 2), "\n")
     cat("95th percentile  :", round(quantile(r, 0.95), 2), "\n")
     cat("SD               :", round(sd(r), 2), "\n")
+    # "Near failure" = recruitment below 1% of the deterministic expectation
     pct_fail <- mean(r < det * 0.01) * 100
     cat("P(recruit < 1% of expected):", round(pct_fail, 1), "%\n")
   })
