@@ -1,0 +1,112 @@
+project:
+  type: book
+  output-dir: docs
+  render:
+    - index.qmd
+    - 01-welcome-workflow.qmd
+    - 02-stats-refresher-plotting.qmd
+    - 03-study-design-sampling.qmd
+    - assignment1-sampling.qmd
+    - 04-age-length-keys-growth.qmd
+    - alk.qmd
+    - VonB.qmd
+    - 05-size-structure-flipped.qmd
+    - "size str 1.qmd"
+    - sizestructure.qmd
+    - 06-weight-length-flipped.qmd
+    - fish-lw-assignment.qmd
+    - conditionactivity.qmd
+    - 07-review-synthesis-exam1.qmd
+    - 08-mark-recapture-abundance.qmd
+    - assignment4_cmr.qmd
+    - 09-mortality-rates.qmd
+    - mortality_assignment.qmd
+    - 10-depletion-removal.qmd
+    - hwk2-abundance.qmd
+    - 11-recruitment.qmd
+    - guide_recruitment.qmd
+    - assignment3_recruitment.qmd
+    - 12-final-project.qmd
+    - FISHERY_MANAGEMENT_PLAN_INSTRUCTIONS.qmd
+    - scenario_01/scenario overview_1.qmd
+    - scenario_02/scenario overview_2.qmd
+    - scenario_03/scenario_overview_3.qmd
+    - scenario_04/sceneario_overview_4.qmd
+    - scenario_05/scennario_overview_5.qmd
+    - scenario_06/scenario_overview_6.qmd
+    - scenario_07/scenario_overview_7.qmd
+    - datasets.qmd
+
+book:
+  title: "WFS 452"
+  subtitle: "Analysis and Interpretation of Fisheries Data"
+  author: "Alejandro Molina Moctezuma"
+  date: "5/12/2026"
+  page-footer: "Alejandro Molina-Moctezuma, 2026"
+  sidebar:
+    collapse-level: 1
+  chapters:
+    - index.qmd
+    - part: 01-welcome-workflow.qmd
+      chapters:
+        - 02-stats-refresher-plotting.qmd
+        - 03-study-design-sampling.qmd
+        - assignment1-sampling.qmd
+    - part: 04-age-length-keys-growth.qmd
+      chapters:
+        - alk.qmd
+        - VonB.qmd
+    - part: 05-size-structure-flipped.qmd
+      chapters:
+        - "size str 1.qmd"
+        - sizestructure.qmd
+    - part: 06-weight-length-flipped.qmd
+      chapters:
+        - fish-lw-assignment.qmd
+        - conditionactivity.qmd
+    - 07-review-synthesis-exam1.qmd
+    - part: 08-mark-recapture-abundance.qmd
+      chapters:
+        - assignment4_cmr.qmd
+    - part: 09-mortality-rates.qmd
+      chapters:
+        - mortality_assignment.qmd
+    - part: 10-depletion-removal.qmd
+      chapters:
+        - hwk2-abundance.qmd
+    - part: 11-recruitment.qmd
+      chapters:
+        - guide_recruitment.qmd
+        - assignment3_recruitment.qmd
+    - 12-final-project.qmd
+  appendices:
+    - FISHERY_MANAGEMENT_PLAN_INSTRUCTIONS.qmd
+    - scenario_01/scenario overview_1.qmd
+    - scenario_02/scenario overview_2.qmd
+    - scenario_03/scenario_overview_3.qmd
+    - scenario_04/sceneario_overview_4.qmd
+    - scenario_05/scennario_overview_5.qmd
+    - scenario_06/scenario_overview_6.qmd
+    - scenario_07/scenario_overview_7.qmd
+    - datasets.qmd
+  navbar:
+    search: true
+    background: light
+    left:
+      - text: "Home"
+        href: index.qmd
+
+bibliography: AIFFDReferences.bib
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+
+execute:
+  eval: false
+
+number-sections: true
+
+editor: visual

@@ -1,0 +1,68 @@
+---
+title: "Age-length keys and age-growth concepts"
+categories:
+  - age-length-keys
+  - growth
+  - von-bertalanffy
+  - fisheries-analysis
+  - r-lab
+---
+
+Age data are expensive, length data are common, and fisheries biologists are almost always asked to connect the two. This module introduces age-length keys and growth modeling as practical tools for turning limited hard-part data into useful population summaries.
+
+## Key concepts
+
+- why we subsample fish for age structures
+- age-length keys as probability tools
+- growth trajectories and length-at-age
+- biological meaning of \(L_\infty\), \(K\), and \(t_0\)
+- strengths and limits of growth models in management
+
+## Reading and preparation
+
+- Read the ALK assignment before class.
+- Skim the Von Bertalanffy lab so the parameter names are familiar.
+- Be ready to explain why “more length data” does not automatically mean “more age data.”
+
+## Lecture guide
+
+### Learning goals
+
+You should be able to describe the logic of an age-length key, interpret the main Von Bertalanffy parameters, and explain how growth summaries support management decisions.
+
+### Agenda
+
+1. Why age data are limited
+2. Building an ALK from a subsample
+3. Reading age-growth plots
+4. Linking growth estimates to management questions
+5. By-hand interpretation check
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** printed age-length table, colored pencils, and calculator.
+
+**Steps:**
+
+1. Sort a small set of fish into length bins.
+2. Count aged fish in each bin.
+3. Estimate the most likely age class for unaged fish in two bins.
+4. Write one sentence about how uncertainty changes across bins.
+
+**What to turn in:** one marked-up ALK worksheet.
+
+**Simple rubric (4 pts):** bins completed (1), counts accurate (1), age assignments attempted (1), uncertainty statement included (1).
+:::
+
+::: callout-important
+## R Lab
+
+Use `alk.qmd` for the age-length key workflow and `VonB.qmd` for the growth-model workflow. Keep the focus on interpretation, not just getting code to run.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Students often confuse “predicted age” with “known age.” Keep coming back to the idea that the ALK is a probabilistic allocation, not a direct observation.
+:::

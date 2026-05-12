@@ -1,0 +1,117 @@
+---
+title: "Size structure — Flipped Classroom #1 (Team 1)"
+categories:
+  - flipped-classroom
+  - size-structure
+  - psd
+  - lecture-guide
+  - peer-feedback
+---
+
+This week is the first flipped classroom module. Team 1 leads the Tuesday overview and helps launch the Thursday activity set. The rest of us come prepared to question, calculate, and interpret size structure carefully.
+
+## Key concepts
+
+- length-frequency distributions
+- PSD and related size-structure indices
+- strengths and weaknesses of summary indices
+- species-specific benchmarks and interpretation
+- connecting size structure to management action
+
+::: callout-important
+## Flipped Classroom
+
+### Tuesday: student-led lecture guide
+
+**Learning goals**
+
+- define stock, quality, preferred, memorable, and trophy categories
+- interpret PSD in words, not just as a number
+- compare histogram-based and index-based summaries
+
+**Agenda**
+
+1. 5-minute opening and learning goals
+2. 10-minute size-structure vocabulary review
+3. 10-minute worked PSD example on the board
+4. 10-minute interpretation discussion
+5. 5-minute recap and questions
+
+**Whiteboard plan**
+
+- draw one histogram
+- list Gabelhouse categories for one sport fish
+- write the PSD formula
+- show one management interpretation from a high PSD and one from a low PSD
+
+**Common misconceptions**
+
+- a single PSD value fully describes a fish population
+- a low PSD always means overharvest
+- all species should have the same “good” size structure
+
+**Discussion questions**
+
+1. What information does a histogram show that PSD can hide?
+2. When could the same PSD support two different management decisions?
+3. How do species life histories change the way we interpret size structure?
+
+### Thursday: student-led activity instructions
+
+1. Give each table a short dataset.
+2. Have students compute one PSD value by hand.
+3. Ask each group to defend whether the population looks balanced.
+4. End with one slide on what additional data would strengthen the conclusion.
+
+### Thursday: instructor-led activity instructions
+
+1. Walk through one complete PSD example.
+2. Compare hand calculations to software output.
+3. Lead a short error-analysis discussion on stock-size denominators.
+4. Close with management scenarios that need more than one index.
+
+### Team responsibilities
+
+- post slides and a one-page guide by Monday night
+- arrive early and check the board plan
+- facilitate discussion without reading directly from slides
+- collect peer questions for the instructor debrief
+
+### Peer feedback mini-rubric
+
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Clarity | unclear | mostly clear | very clear |
+| Accuracy | several errors | minor errors | accurate |
+| Engagement | passive | some engagement | strong engagement |
+| Facilitation | no structure | partial structure | strong pacing |
+:::
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** calculator, histogram handout, and PSD formula sheet.
+
+**Steps:**
+
+1. Count stock-size and quality-size fish from the handout.
+2. Compute PSD by hand.
+3. Compare your answer to a partner.
+4. Write one limitation of using PSD alone.
+
+**What to turn in:** one completed PSD worksheet.
+
+**Simple rubric (4 pts):** counts shown (1), PSD correct (1), partner check completed (1), limitation stated (1).
+:::
+
+::: callout-warning
+## Assignment
+
+Use both `size str 1.qmd` and `sizestructure.qmd` this week. One assignment can remain instructor-led, and Team 1 should help adapt one short section into a peer-led practice exercise.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Plan extra time for interpretation. Students usually can compute PSD faster than they can explain what it means biologically.
+:::

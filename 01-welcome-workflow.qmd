@@ -1,0 +1,68 @@
+---
+title: "Welcome, workflow, and reproducibility"
+categories:
+  - workflow
+  - quarto
+  - rstudio
+  - excel
+  - norms
+---
+
+In the first week we will get organized. The main goal is simple: make sure your software works, your files stay organized, and your analyses are reproducible.
+
+## Key concepts
+
+- R projects and working directories
+- why reproducibility matters in fisheries management
+- how Quarto keeps code, output, and interpretation together
+- what belongs in Excel versus what belongs in R
+- course norms for discussion, collaboration, and file naming
+
+## Reading and preparation
+
+- Read the course welcome page and grading policies.
+- Bring a laptop with R, RStudio, and Excel installed.
+- Be ready to explain one reason reproducible work matters for management decisions.
+
+## Lecture guide
+
+### Learning goals
+
+By the end of class you should be able to open an R project, render a Quarto document, describe a reproducible workflow, and distinguish raw data from derived results.
+
+### Agenda
+
+1. Course overview and expectations
+2. Software check and project setup
+3. Quarto workflow demonstration
+4. Reproducibility discussion
+5. Short by-hand reflection
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** laptop, blank sheet of paper, and a printed sample data table.
+
+**Steps:**
+
+1. Draw a workflow from field sampling to management recommendation.
+2. Mark which steps should happen in Excel, in R, and in Quarto.
+3. Circle one step where errors could easily enter.
+4. Compare with a partner and revise one part of your workflow.
+
+**What to turn in:** one annotated workflow diagram per student.
+
+**Simple rubric (4 pts):** all major steps shown (1), software roles identified (1), one realistic error source (1), revision after discussion (1).
+:::
+
+::: callout-important
+## Assignment
+
+Set up your WFS 452 project folder, confirm that Quarto can render a document on your machine, and save a screenshot of a successful render. If anything breaks, raise your hand in class so we can fix it early.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Model the exact folder structure you want students to use all semester. Keep the example small and concrete: one project, one `.qmd`, one `.csv`, one rendered output.
+:::

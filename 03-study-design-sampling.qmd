@@ -1,0 +1,68 @@
+---
+title: "Study design, sampling, bias, and QA/QC"
+categories:
+  - study-design
+  - sampling
+  - bias
+  - qa-qc
+  - excel
+---
+
+Good fisheries analysis starts before the first model. In this module we focus on sample design, randomization, and the kinds of mistakes that make a clean-looking analysis untrustworthy.
+
+## Key concepts
+
+- target population and sampling frame
+- random, stratified, and convenience sampling
+- precision versus bias
+- field notes, metadata, and QA/QC checks
+- random sampling in Excel and in R
+
+## Reading and preparation
+
+- Read the sampling assignment.
+- Review the difference between a sampling error and a measurement error.
+- Bring one example of a biased sample from everyday life.
+
+## Lecture guide
+
+### Learning goals
+
+By the end of class you should be able to explain why randomization matters, identify likely sources of sampling bias, and document a basic QA/QC workflow.
+
+### Agenda
+
+1. Sampling design mini-lecture
+2. Excel randomization walkthrough
+3. R randomization walkthrough
+4. Bias and QA/QC discussion
+5. By-hand design check
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** deck of numbered fish cards, calculator, and worksheet.
+
+**Steps:**
+
+1. Draw a simple random sample from the card deck without replacement.
+2. Record the sample mean and compare it to the posted population mean.
+3. Repeat with a deliberately biased sample chosen from the largest cards.
+4. Write two sentences comparing the results.
+
+**What to turn in:** completed worksheet with both sample means.
+
+**Simple rubric (4 pts):** random sample recorded (1), biased sample recorded (1), calculations shown (1), comparison written clearly (1).
+:::
+
+::: callout-important
+## Assignment
+
+Complete the sampling exercise in `assignment1-sampling.qmd`. Students should show the Excel workflow and the R workflow, then interpret how close the sample estimate is to the known population mean.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Pause on QA/QC. Students often think QA/QC is only a spreadsheet issue, but it is also a study-design and field-protocol issue.
+:::

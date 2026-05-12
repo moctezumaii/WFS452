@@ -1,0 +1,68 @@
+---
+title: "Statistics refresher and plotting data"
+categories:
+  - statistics
+  - plotting
+  - exploratory-analysis
+  - vocabulary
+  - review
+---
+
+This module reviews the statistical language and visual habits we will need for the rest of the course. The point is not to relearn everything at once. The point is to rebuild enough fluency to read a dataset and ask good questions.
+
+## Key concepts
+
+- population, sample, parameter, and statistic
+- variable types and units
+- distribution, center, spread, and outliers
+- why exploratory plots come before formal models
+- what makes a figure useful to a manager
+
+## Reading and preparation
+
+- Review your notes on means, variance, confidence intervals, and probability.
+- Skim one fisheries paper and notice what kinds of figures it uses.
+- Bring one figure you think is easy to interpret and one you think is confusing.
+
+## Lecture guide
+
+### Learning goals
+
+You should be able to describe a dataset, choose a reasonable first plot, and explain why units and variable types matter before analysis.
+
+### Agenda
+
+1. Vocabulary warm-up
+2. Quick review of summary statistics
+3. Plot critique and redesign
+4. Short practice with fisheries examples
+5. Exit ticket
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** calculator, ruler, colored pen, and one printed fisheries dataset excerpt.
+
+**Steps:**
+
+1. Label each column as categorical, discrete, or continuous.
+2. Identify the observational unit.
+3. Compute one mean or proportion by hand.
+4. Sketch the first figure you would make and justify it in two sentences.
+
+**What to turn in:** one annotated dataset sheet.
+
+**Simple rubric (4 pts):** variable types correct (1), observational unit correct (1), calculation shown (1), plot choice justified (1).
+:::
+
+::: callout-important
+## R Lab
+
+Use this week to practice making simple plots and writing short figure captions in Quarto. If students need extra practice, add a small starter dataset and have them compare a histogram, boxplot, and scatterplot for the same question.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Keep the emphasis on interpretation. Students often remember formulas better when they first see why a graph or summary changes the management story.
+:::

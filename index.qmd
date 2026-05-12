@@ -1,0 +1,84 @@
+---
+categories:
+  - course-overview
+  - syllabus
+  - logistics
+  - fisheries
+  - reproducibility
+---
+
+# Welcome! {.unnumbered}
+
+This book was built to host the working materials for **WFS 452: Analysis and Interpretation of Fisheries Data**. We will learn fisheries vocabulary, work through applied examples in **R**, keep track of our thinking in **Quarto**, and practice interpreting data the way fisheries managers actually use it.
+
+## COURSE LOGISTICS
+
+### Catalog description
+
+This course covers theory and application of sample design, analysis, and interpretation of freshwater fisheries data. Topics include fisheries management study design, recruitment, mortality, age and growth, abundance, biomass and production, size structure, bioenergetics, and development of management plans.
+
+### Student learning outcomes
+
+By the end of the course, you should be able to:
+
+- calculate and interpret fish population metrics commonly used in fisheries management
+- define and use standard fisheries vocabulary, abbreviations, notation, and equations
+- read, summarize, and discuss journal papers in fisheries ecology and management
+- apply course tools to real-world management and conservation case studies
+
+### Software expectations
+
+We will use **Excel**, **R**, and **RStudio**. Please do **not** plan on using Google Sheets for course calculations.
+
+### Grading
+
+- Assignments: 25%
+- Exams (2): 30% total
+  - Take-home exam: 10%
+  - In-class exam: 20%
+- Final project: 20%
+- Flipped classroom: 20%
+- Participation: 5%
+
+### Participation and AI use
+
+This is a flipped course. If you are disengaged during team-led and in-class work, your participation score will drop.
+
+You may use generative AI tools to help you study, outline, or debug. However, **submitted work must be in your own words**, reflect your own reasoning, and include a brief note acknowledging meaningful AI assistance.
+
+## How this book is organized
+
+Most modules follow the same pattern:
+
+1. a short overview page for the week
+2. a lecture guide with key concepts and prep tasks
+3. a by-hand activity for in-class thinking
+4. an R lab or assignment page
+5. instructor notes or flipped-classroom support when needed
+
+::: callout-important
+## Start here
+
+Before the next class, make sure R, RStudio, and Excel are installed and working on your laptop. Bring your own notes, questions, and charger.
+:::
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** index card, pen or pencil, and your laptop closed for the first five minutes.
+
+**Steps:**
+
+1. Write one sentence defining “fisheries data.”
+2. List one thing you already know how to do in Excel or R.
+3. List one thing that still feels confusing.
+4. Exchange cards with a partner and identify one shared concern.
+
+**What to turn in:** one card per student with your name and partner initials.
+
+**Simple rubric (3 pts):** complete response (1), thoughtful definition (1), partner comparison (1).
+:::
+
+## Next steps
+
+Continue to the workflow chapter and keep this book open during the semester. We will add to it as we go.

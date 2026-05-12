@@ -1,0 +1,77 @@
+---
+title: "Final project: Fisheries Management Plan"
+categories:
+  - final-project
+  - management-plan
+  - scenarios
+  - milestones
+  - rubric
+---
+
+The final project asks each team to build a **Fisheries Management Plan** from a realistic scenario, available data, and supporting literature. This is where the course comes together.
+
+## Project structure
+
+Each team will:
+
+1. choose one scenario
+2. build an information base from the provided datasets and literature
+3. define a management goal and objectives
+4. recommend actions tied to fish, habitat, and people
+5. present the plan in writing and orally
+
+## Required project materials in this book
+
+- the full instructions file: `FISHERY_MANAGEMENT_PLAN_INSTRUCTIONS.qmd`
+- all seven scenario overviews in the appendix section of the book
+- `datasets.qmd` as a lightweight reference for management-oriented datasets already used in the course
+
+## Milestones
+
+| Milestone | What to do | Suggested evidence |
+|---|---|---|
+| Milestone 1 | Form teams and rank scenario choices | team roster + ranked list |
+| Milestone 2 | Inventory available data and literature | one-page source log |
+| Milestone 3 | Draft goal, problems, and objectives | outline with bullet points |
+| Milestone 4 | Build analysis figures and tables | draft figures with captions |
+| Milestone 5 | Peer review another team | written peer feedback |
+| Milestone 6 | Submit expanded outline and presentation | final files |
+
+## Rubric focus
+
+The formal scoring details are in the instructions appendix. For course planning, keep watching these big categories:
+
+- clarity of management goal
+- quality of analysis and interpretation
+- fit between identified problems and proposed actions
+- organization, figures, tables, and references
+- teamwork and presentation quality
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** scenario overview printout, sticky notes, and rubric summary.
+
+**Steps:**
+
+1. Read one scenario in a small group.
+2. Write one likely management problem, one possible objective, and one data gap on separate sticky notes.
+3. Sort the notes into “fish,” “habitat,” and “people.”
+4. Decide what additional evidence you would need before proposing action.
+
+**What to turn in:** one grouped sticky-note board photo or worksheet.
+
+**Simple rubric (4 pts):** three notes completed (1), sorting completed (1), evidence need identified (1), group consensus shown (1).
+:::
+
+::: callout-important
+## Assignment
+
+Teams should use the appendix materials directly. Do not paraphrase the scenario overview when you first inventory the problem; quote or cite the provided scenario language, then add your own interpretation and analysis afterward.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Use this chapter to pace the semester. The scenarios are intentionally open enough that different teams can defend different management paths.
+:::

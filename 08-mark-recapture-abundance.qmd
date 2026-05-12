@@ -1,0 +1,68 @@
+---
+title: "Mark-recapture abundance"
+categories:
+  - abundance
+  - mark-recapture
+  - chapman
+  - confidence-intervals
+  - lab
+---
+
+Mark-recapture is one of the classic fisheries tools for estimating abundance when direct counts are not realistic. In this module we practice the logic, the assumptions, and the interpretation of confidence intervals.
+
+## Key concepts
+
+- closed-population assumptions
+- Lincoln-Petersen and Chapman estimators
+- variance and confidence intervals
+- equal catchability and mark retention
+- linking assumptions to field conditions
+
+## Reading and preparation
+
+- Read the CMR assignment before class.
+- Review the difference between a point estimate and an interval estimate.
+- Be ready to explain one way a mark-recapture estimate can be biased.
+
+## Lecture guide
+
+### Learning goals
+
+You should be able to compute a Chapman estimate, interpret a confidence interval in plain language, and diagnose which assumptions matter most for a given field situation.
+
+### Agenda
+
+1. Assumptions review
+2. Chapman estimator walkthrough
+3. Confidence interval interpretation
+4. Simulation discussion
+5. By-hand estimation check
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** calculator, worksheet, and two colored chips per group.
+
+**Steps:**
+
+1. Use the worksheet values for \(M\), \(C\), and \(R\).
+2. Compute the Chapman abundance estimate by hand.
+3. Interpret whether the estimate seems precise or imprecise.
+4. Write one violated assumption that would bias the result high or low.
+
+**What to turn in:** one completed abundance worksheet.
+
+**Simple rubric (4 pts):** formula substitution shown (1), estimate computed (1), precision comment (1), assumption comment (1).
+:::
+
+::: callout-important
+## R Lab
+
+Use `assignment4_cmr.qmd` for the full lab sequence. Students should move from hand calculation to software-supported interpretation and then reflect on assumptions.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Push students to describe assumptions in biological language. “Equal catchability” is easier to remember when it is connected to trap-happy or trap-shy fish.
+:::

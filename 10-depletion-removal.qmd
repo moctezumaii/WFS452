@@ -1,0 +1,117 @@
+---
+title: "Abundance from depletion and removal methods — Flipped Classroom #3"
+categories:
+  - flipped-classroom
+  - depletion
+  - removal
+  - abundance
+  - peer-feedback
+---
+
+This module extends abundance estimation beyond mark-recapture. We will use depletion logic, CPUE decline, and catchability to think through removal methods.
+
+## Key concepts
+
+- depletion as a declining-CPUE problem
+- catchability and cumulative catch
+- abundance from removal methods
+- assumptions and sensitivity to effort patterns
+- comparing depletion to mark-recapture logic
+
+::: callout-important
+## Flipped Classroom
+
+### Tuesday: student-led lecture guide
+
+**Learning goals**
+
+- describe when depletion methods are useful
+- explain why CPUE should decline as fish are removed
+- interpret slope and intercept in a depletion regression
+
+**Agenda**
+
+1. 5-minute refresher on abundance estimation
+2. 10-minute depletion concept sketch
+3. 10-minute worked CPUE example
+4. 10-minute assumption check
+5. 5-minute wrap-up
+
+**Whiteboard plan**
+
+- define catchability
+- draw CPUE against cumulative catch
+- label slope and intercept meaning
+- list two assumptions and one likely violation
+
+**Common misconceptions**
+
+- constant effort means constant catch
+- any declining catch pattern proves depletion assumptions were met
+- removal methods and mark-recapture estimate the same thing in the same way
+
+**Discussion questions**
+
+1. What field conditions make a removal estimate more believable?
+2. How would changing effort across passes affect interpretation?
+3. When would you prefer mark-recapture over depletion, or vice versa?
+
+### Thursday: student-led activity instructions
+
+1. Give groups a small catch-and-effort table.
+2. Have them compute CPUE and cumulative catch by hand.
+3. Ask them to sketch the expected regression pattern.
+4. End with a short claim about whether the estimate seems trustworthy.
+
+### Thursday: instructor-led activity instructions
+
+1. Compare hand calculations to the software workflow.
+2. Discuss what happens when effort is inconsistent.
+3. Walk through one example of poor fit.
+4. If there is **no class Thursday**, replace the in-person activity with an async by-hand packet using the same worksheet and a short reflection submission.
+
+### Team responsibilities
+
+- post a Tuesday guide with one worked example
+- prepare the by-hand worksheet before class
+- facilitate discussion and collect muddy points
+- submit a short reflection on what the class found hardest
+
+### Peer feedback mini-rubric
+
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Accuracy | weak | adequate | strong |
+| Organization | weak | adequate | strong |
+| Activity leadership | weak | adequate | strong |
+| Reflection quality | weak | adequate | strong |
+:::
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** calculator, graph paper, and depletion worksheet.
+
+**Steps:**
+
+1. Compute CPUE for each pass.
+2. Compute cumulative catch.
+3. Sketch the expected line by hand.
+4. State whether the data support a reasonable depletion estimate.
+
+**What to turn in:** one worksheet per pair.
+
+**Simple rubric (4 pts):** CPUE complete (1), cumulative catch complete (1), sketch labeled (1), interpretation stated (1).
+:::
+
+::: callout-warning
+## Assignment
+
+Use the depletion section in `hwk2-abundance.qmd` for the main follow-up. Students should compare the removal-method logic to the mark-recapture logic they already know.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Keep the Thursday backup plan ready. An async packet works if the worksheet still requires hand calculations and interpretation rather than copy-pasting software output.
+:::

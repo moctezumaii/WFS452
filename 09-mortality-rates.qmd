@@ -1,0 +1,68 @@
+---
+title: "Mortality rates"
+categories:
+  - mortality
+  - survival
+  - instantaneous-rates
+  - interpretation
+  - lab
+---
+
+Mortality estimates are easy to misuse if we forget the time scale. This module slows down the notation and keeps the focus on what each rate means biologically.
+
+## Key concepts
+
+- absolute mortality versus mortality rate
+- survival and mortality over different intervals
+- instantaneous mortality rate
+- partitioning total mortality into natural and fishing components
+- interpreting rates for management
+
+## Reading and preparation
+
+- Read the mortality lab before class.
+- Review natural logarithms and why they appear in mortality equations.
+- Bring one question about rate interpretation.
+
+## Lecture guide
+
+### Learning goals
+
+You should be able to move between interval and instantaneous mortality, explain what the time scale means, and describe when total mortality is not enough for a management recommendation.
+
+### Agenda
+
+1. Rate vocabulary review
+2. Worked mortality example
+3. Interval versus instantaneous comparison
+4. Short interpretation practice
+5. By-hand check
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** calculator, mortality formula sheet, and worksheet.
+
+**Steps:**
+
+1. Calculate interval mortality for a short example.
+2. Convert it to instantaneous mortality.
+3. Compute survival for a shorter interval.
+4. Write one sentence explaining why the same population can have different values at different time scales.
+
+**What to turn in:** one completed worksheet.
+
+**Simple rubric (4 pts):** interval rate correct (1), instantaneous rate correct (1), shorter interval computed (1), explanation included (1).
+:::
+
+::: callout-important
+## R Lab
+
+Use `mortality_assignment.qmd` for the main lab. Encourage students to annotate what each line means rather than only reporting the numeric answers.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Students often confuse a mortality rate with the number of deaths. Make them say both quantities out loud.
+:::

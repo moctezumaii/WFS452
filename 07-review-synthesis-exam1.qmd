@@ -1,0 +1,77 @@
+---
+title: "Review, synthesis, and Exam 1 by-hand practice"
+categories:
+  - review
+  - synthesis
+  - exam-prep
+  - by-hand
+  - practice
+---
+
+This chapter is for pulling the first half of the course together. The goal is not to race through formulas. The goal is to practice choosing the right tool, checking units, and explaining results clearly.
+
+## Synthesis prompts
+
+- How does study design shape what we can claim from fisheries data?
+- Which metrics summarize populations well, and which hide important detail?
+- When should we trust a simple summary and when do we need more context?
+- What does “interpretation” add beyond “calculation”?
+
+## Exam 1 study focus
+
+1. vocabulary and notation
+2. sampling and bias
+3. plotting and interpretation
+4. age-growth concepts
+5. size structure
+6. weight-length relationships and condition
+
+::: callout-note
+## By-hand activity
+
+**Activity 1: Formula sort and unit check**
+
+**Materials needed:** formula cards, unit cards, and scratch paper.
+
+**Steps:**
+
+1. Match each formula to its fisheries use.
+2. Match each formula to the correct units or unitless interpretation.
+3. Identify one common mistake for two formulas.
+4. Compare answers with another pair.
+
+**What to turn in:** one completed matching sheet.
+
+**Simple rubric (4 pts):** formulas matched (1), units matched (1), mistakes identified (1), peer comparison completed (1).
+:::
+
+::: callout-note
+## By-hand activity
+
+**Activity 2: Error analysis station rotation**
+
+**Materials needed:** printed worked solutions with intentional mistakes and a pen.
+
+**Steps:**
+
+1. Rotate through three stations.
+2. Find and label at least one error at each station.
+3. Correct the error in words or calculations.
+4. Vote on which error would be most serious in a management report.
+
+**What to turn in:** one station sheet per student.
+
+**Simple rubric (4 pts):** three errors found (1), corrections reasonable (1), seriousness ranking completed (1), legible explanation (1).
+:::
+
+::: callout-important
+## Assignment
+
+Prepare a one-page review sheet in your own words. Organize it around concepts, not just equations. If you can explain when a metric is useful and what assumptions matter, you are in much better shape for the exam.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Keep this session as interactive as possible. Students remember the discussion around wrong answers better than a second pass through the slides.
+:::

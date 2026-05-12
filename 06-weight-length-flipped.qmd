@@ -1,0 +1,117 @@
+---
+title: "Weight-length relationships — Flipped Classroom #2 (Team 2)"
+categories:
+  - flipped-classroom
+  - length-weight
+  - condition
+  - lecture-guide
+  - peer-feedback
+---
+
+Weight-length relationships are simple to state and surprisingly powerful to interpret. This flipped module links model form, biological meaning, and fish condition.
+
+## Key concepts
+
+- the equation \(W = aL^b\)
+- isometric versus allometric growth
+- log-transformation and model interpretation
+- relative weight and condition
+- comparing populations and possible causes of differences
+
+::: callout-important
+## Flipped Classroom
+
+### Tuesday: student-led lecture guide
+
+**Learning goals**
+
+- interpret the parameters \(a\) and \(b\)
+- explain the biological meaning of \(b < 3\), \(b = 3\), and \(b > 3\)
+- connect weight-length patterns to habitat and food limitation
+
+**Agenda**
+
+1. 5-minute opener with the model equation
+2. 10-minute graph comparison of different \(b\) values
+3. 10-minute worked example of log transformation
+4. 10-minute condition interpretation
+5. 5-minute wrap-up
+
+**Whiteboard plan**
+
+- write the raw and log-transformed equations
+- sketch three curves with different \(b\) values
+- define relative weight
+- list two biological explanations for low condition
+
+**Common misconceptions**
+
+- heavier fish are always healthier fish
+- the intercept has no biological meaning
+- log transformation changes the biology rather than the scale of analysis
+
+**Discussion questions**
+
+1. What could cause two populations of the same species to have different length-weight curves?
+2. Why is it risky to interpret a slope without checking the data first?
+3. What management questions can relative weight help answer?
+
+### Thursday: student-led activity instructions
+
+1. Give pairs two short fish datasets.
+2. Ask them to compare which population appears food limited.
+3. Require one written biological explanation and one alternate explanation.
+4. Finish with a group check on outliers.
+
+### Thursday: instructor-led activity instructions
+
+1. Demonstrate a quick back-transformation.
+2. Show how outliers affect fitted relationships.
+3. Lead an error-analysis discussion on units and axes.
+4. Connect condition metrics to management benchmarks.
+
+### Team responsibilities
+
+- prepare one-page notes with key definitions
+- bring one figure to critique and one figure to defend
+- manage the timing of partner discussion
+- submit discussion questions after class
+
+### Peer feedback mini-rubric
+
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Preparation | weak | adequate | strong |
+| Biological interpretation | weak | adequate | strong |
+| Discussion leadership | weak | adequate | strong |
+| Responsiveness | weak | adequate | strong |
+:::
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** graph paper, calculator, and two printed scatterplots.
+
+**Steps:**
+
+1. Inspect both scatterplots for outliers and pattern differences.
+2. Decide which population likely has lower condition.
+3. Write one biological explanation and one data-quality explanation.
+4. Swap papers with another group and critique their explanation.
+
+**What to turn in:** one signed comparison sheet per pair.
+
+**Simple rubric (4 pts):** comparison completed (1), biological explanation (1), alternate explanation (1), peer critique noted (1).
+:::
+
+::: callout-warning
+## Assignment
+
+Use `fish-lw-assignment.qmd` for the main model exercise and `conditionactivity.qmd` for a shorter condition-focused follow-up. These function as the two exercises for this flipped week.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Students often over-trust fitted lines. Build in time to ask whether the data pattern and units support the interpretation they want to make.
+:::

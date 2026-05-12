@@ -1,0 +1,117 @@
+---
+title: "Recruitment — Flipped Classroom #4"
+categories:
+  - flipped-classroom
+  - recruitment
+  - beverton-holt
+  - ricker
+  - peer-feedback
+---
+
+Recruitment is where fisheries data become especially interesting: the same stock can produce very different recruitment outcomes across years. This module keeps the focus on model meaning, not just model fitting.
+
+## Key concepts
+
+- stock-recruit relationships
+- Beverton-Holt and Ricker models
+- density dependence and interpretation
+- variability, uncertainty, and outliers
+- why recruitment rarely gives a single clean answer
+
+::: callout-important
+## Flipped Classroom
+
+### Tuesday: student-led lecture guide
+
+**Learning goals**
+
+- explain what recruitment means in fisheries management
+- distinguish Beverton-Holt from Ricker dynamics
+- connect model shape to ecological interpretation
+
+**Agenda**
+
+1. 5-minute opener with stock and recruit definitions
+2. 10-minute comparison of model shapes
+3. 10-minute discussion of density dependence
+4. 10-minute worked interpretation example
+5. 5-minute recap
+
+**Whiteboard plan**
+
+- define stock and recruits
+- sketch Beverton-Holt and Ricker curves
+- label what happens at high stock size
+- note one reason recruitment data are noisy
+
+**Common misconceptions**
+
+- more spawners always mean more recruits
+- one fitted model proves a management target
+- model fit matters more than biological plausibility
+
+**Discussion questions**
+
+1. Why might recruitment stay flat even when stock increases?
+2. What biological story matches a dome-shaped recruitment curve?
+3. How much confidence should managers place in a noisy stock-recruit relationship?
+
+### Thursday: student-led activity instructions
+
+1. Give groups one stock-recruit plot with no model label.
+2. Have them argue which model shape is more plausible.
+3. Ask for one ecological explanation and one management implication.
+4. Finish with a short whole-class comparison.
+
+### Thursday: instructor-led activity instructions
+
+1. Demonstrate how the same data can support multiple interpretations.
+2. Connect the hand-drawn plots to the R workflow.
+3. Emphasize assumptions, starting values, and uncertainty.
+4. Transition into the recruitment lab.
+
+### Team responsibilities
+
+- prepare the Tuesday guide and discussion prompts
+- lead one short board-based model comparison
+- collect questions for the instructor lab follow-up
+- help distribute the peer-feedback form
+
+### Peer feedback mini-rubric
+
+| Criterion | 0 | 1 | 2 |
+|---|---|---|---|
+| Concept accuracy | weak | adequate | strong |
+| Discussion quality | weak | adequate | strong |
+| Use of examples | weak | adequate | strong |
+| Time management | weak | adequate | strong |
+:::
+
+::: callout-note
+## By-hand activity
+
+**Materials needed:** printed stock-recruit plots, colored pencils, and worksheet.
+
+**Steps:**
+
+1. Inspect one stock-recruit scatterplot.
+2. Sketch the curve shape you think is most defensible.
+3. Label one point that looks influential.
+4. Write one sentence about what additional data would strengthen the interpretation.
+
+**What to turn in:** one annotated plot sheet.
+
+**Simple rubric (4 pts):** curve sketched (1), influential point labeled (1), interpretation written (1), data need identified (1).
+:::
+
+::: callout-warning
+## R Lab
+
+Use `guide_recruitment.qmd` as the worked guide and `assignment3_recruitment.qmd` as the main student assignment. Keep the emphasis on comparing biological meaning, not only on selecting a best fit.
+:::
+
+::: callout-tip
+## Instructor Notes
+
+Students may want a single “correct” model. Keep reminding them that noisy recruitment data usually support a range of cautious interpretations.
+:::
