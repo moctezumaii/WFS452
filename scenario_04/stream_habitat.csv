@@ -1,17 +1,3 @@
-# stream_habitat.csv
-# Elk Fork Creek - Stream Habitat Survey Data
-# Columns:
-#   year: Year of survey (integer, YYYY)
-#   site: Site identifier (character, EF01-EF05)
-#   transect: Transect number within site (integer)
-#   canopy_cover_pct: Percent canopy cover overhead
-#   dominant_substrate: Dominant substrate type (character: bedrock, boulder, cobble, gravel, sand, silt)
-#   pct_fines: Percent substrate composed of sand and finer material
-#   pool_depth_cm: Maximum pool depth at the transect in centimeters; NA if no pool present
-#   lwd_count: Count of large woody debris pieces (>10 cm diameter, >1 m length) within 5 m of transect
-#   bank_erosion_rating: Visual rating of bank erosion (1=none to 5=severe)
-# Units: cover in %, depth in cm, LWD as count
-# Missing values coded as NA
 year,site,transect,canopy_cover_pct,dominant_substrate,pct_fines,pool_depth_cm,lwd_count,bank_erosion_rating
 2015,EF01,1,74,gravel,15,74,4,2
 2015,EF01,2,77,gravel,14,50,6,3

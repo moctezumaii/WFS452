@@ -1,21 +1,3 @@
-# walleye_creel.csv
-# Lake Sandhill - Walleye Creel Survey Data
-# Columns:
-#   year: Survey year (integer, YYYY)
-#   season: Fishing season (character: open_water or ice)
-#   month: Month of interview (integer, 1-12)
-#   survey_date: Date of creel clerk interview (YYYY-MM-DD)
-#   angler_id: Anonymous angler identifier (character)
-#   party_size: Number of anglers in the party
-#   hours_fished: Total hours fished by the party during that trip
-#   walleye_caught: Number of walleye caught (kept + released)
-#   walleye_harvested: Number of walleye harvested (kept)
-#   largest_walleye_mm: Total length of largest walleye caught in mm; NA if none caught
-#   target_species: Primary species targeted (character)
-#   satisfaction: Trip satisfaction (1=very dissatisfied to 5=very satisfied); NA if not answered
-#   resident: Whether angler is a local resident (yes or no); NA if not answered
-# Units: effort in hours, length in mm
-# Missing values coded as NA
 year,season,month,survey_date,angler_id,party_size,hours_fished,walleye_caught,walleye_harvested,largest_walleye_mm,target_species,satisfaction,resident
 2012,open_water,5,2012-05-09,OW201205000,2,8.5,3,2,390,yellow_perch,5,no
 2012,open_water,5,2012-05-21,OW201205001,1,8.0,6,4,543,walleye,NA,yes

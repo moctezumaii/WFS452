@@ -1,16 +1,3 @@
-# fish_community.csv
-# Mirror Lake - Annual Fyke Net Fish Community Survey Data
-# Columns:
-#   year: Year of survey (integer, YYYY)
-#   sample_date: Date of net retrieval (YYYY-MM-DD)
-#   site: Fyke net site identifier (character, FN01-FN06)
-#   net_nights: Number of net-nights of effort at that site (usually 1)
-#   species: Common name of fish species (character)
-#   count: Number of individuals of that species
-#   mean_tl_mm: Mean total length of captured individuals in mm; NA if fewer than 3 individuals
-#   total_biomass_kg: Total biomass of that species at that site in kg; NA if not weighed
-# Units: length in mm, biomass in kg
-# Missing values coded as NA
 year,sample_date,site,net_nights,species,count,mean_tl_mm,total_biomass_kg
 2010,2010-06-06,FN01,1,bluegill,16,166,1.75
 2010,2010-06-06,FN01,1,largemouth_bass,3,318,1.94

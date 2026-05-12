@@ -19,7 +19,7 @@ Each team will choose one of seven available scenarios. To make your choice:
 
 1. Browse each scenario folder (scenario_01 through scenario_07).
 2. Read the `scenario_overview` file in each folder to understand the setting, species, management context, and available data.
-3. Open the CSV dataset(s) in each folder. Each CSV file contains a data dictionary in commented header rows (lines starting with `#`) that describe every column, its units, and what the values represent.
+3. Open the CSV dataset(s) in each folder. Each scenario folder includes a `README_fix_notes.md` file that preserves the dataset notes, column descriptions, units, and audit summary for the cleaned CSV files.
 4. Discuss as a team which scenario is the best match for your interests and strengths.
 5. Once your team selects a scenario, notify me so no two teams work on the same one.
 
