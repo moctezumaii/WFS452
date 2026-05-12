@@ -1,15 +1,3 @@
-# community_trapnet.csv
-# Copperhead Lake - Standardized Trap Net Survey Data
-# Columns:
-#   year: Survey year (integer, YYYY)
-#   survey_date: Date net was set (YYYY-MM-DD)
-#   site: Site identifier (character, T01-T06)
-#   set_duration_hr: Duration net was set in hours
-#   species: Common name of fish species captured (character)
-#   count: Number of individuals captured of that species
-#   mean_length_mm: Mean total length of captured individuals in mm; NA if fewer than 3 fish
-# Units: duration in hours, length in mm
-# Missing values coded as NA
 year,survey_date,site,set_duration_hr,species,count,mean_length_mm
 2010,2010-07-25,T01,25.4,bluegill,22,165
 2010,2010-07-25,T01,25.4,black_crappie,18,197

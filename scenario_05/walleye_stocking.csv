@@ -1,14 +1,3 @@
-# walleye_stocking.csv
-# Lake Sandhill - Walleye Stocking Records
-# Columns:
-#   year: Year of stocking event (integer, YYYY)
-#   stocking_date: Date of stocking (YYYY-MM-DD)
-#   number_stocked: Total number of walleye fingerlings stocked
-#   mean_length_mm: Mean total length of stocked fingerlings in mm
-#   strain: Walleye strain used (character)
-#   source_hatchery: Name of source hatchery (character)
-# Units: length in mm
-# Missing values coded as NA
 year,stocking_date,number_stocked,mean_length_mm,strain,source_hatchery
 2010,2010-06-15,50000,38,northern,Spirit Lake Hatchery
 2011,2011-06-20,45000,40,northern,Spirit Lake Hatchery

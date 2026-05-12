@@ -1,18 +1,3 @@
-# bass_age_growth.csv
-# Pine Bluff Reservoir - Largemouth Bass Age and Growth Data from Otolith Samples
-# Columns:
-#   year_collected: Year the fish was collected (integer, YYYY)
-#   fish_id: Unique fish identifier (character)
-#   total_length_mm: Total length at capture in millimeters
-#   weight_g: Weight at capture in grams
-#   age_years: Estimated age from otolith reading in years
-#   length_at_age1_mm: Back-calculated total length at age 1 (mm); NA if not available
-#   length_at_age2_mm: Back-calculated total length at age 2 (mm); NA if fish age < 2
-#   length_at_age3_mm: Back-calculated total length at age 3 (mm); NA if fish age < 3
-#   length_at_age4_mm: Back-calculated total length at age 4 (mm); NA if fish age < 4
-#   length_at_age5_mm: Back-calculated total length at age 5 (mm); NA if fish age < 5
-# Units: lengths in mm, weight in g, age in years
-# Missing values coded as NA
 year_collected,fish_id,total_length_mm,weight_g,age_years,length_at_age1_mm,length_at_age2_mm,length_at_age3_mm,length_at_age4_mm,length_at_age5_mm
 2016,A0001,387,776.2,4,154,261,324,356,NA
 2016,A0002,377,726.6,5,150,246,NA,346,400

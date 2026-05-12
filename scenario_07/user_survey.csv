@@ -1,17 +1,3 @@
-# user_survey.csv
-# Millstone Reservoir - Biennial User Intercept Survey Data
-# Columns:
-#   year: Survey year (integer, YYYY)
-#   survey_date: Date of interview (YYYY-MM-DD)
-#   respondent_id: Anonymous respondent identifier (character)
-#   user_type: Primary activity (character: angler, kayaker, swimmer, walker, other)
-#   frequency: How often they visit per month during season (integer)
-#   hours_on_site: Hours spent during that visit
-#   satisfaction: Overall satisfaction (1=very dissatisfied to 5=very satisfied); NA if not answered
-#   top_concern: Most important management concern selected from list (character)
-#   would_support_fee: Would support a small access fee for improvements (yes, no, unsure); NA if not answered
-# Units: frequency in visits/month, time in hours
-# Missing values coded as NA
 year,survey_date,respondent_id,user_type,frequency,hours_on_site,satisfaction,top_concern,would_support_fee
 2014,2014-08-20,R2014000,kayaker,6,2.2,3,boat_ramps,yes
 2014,2014-07-17,R2014001,kayaker,4,2.7,3,crowding,unsure

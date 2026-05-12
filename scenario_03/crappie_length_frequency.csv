@@ -1,15 +1,3 @@
-# crappie_length_frequency.csv
-# Silver Creek Impoundment - Black Crappie Fall Trap Net Length-Frequency Data
-# Columns:
-#   year: Year of sampling (integer, YYYY)
-#   sample_date: Date of sampling (YYYY-MM-DD)
-#   site: Trap net site identifier (character, TN01-TN08)
-#   fish_id: Unique fish identifier (character)
-#   total_length_mm: Total length in millimeters
-#   weight_g: Weight in grams; NA if not weighed
-#   sex: Sex of fish (M, F, or U for unknown); NA if not determined
-# Units: length in mm, weight in g
-# Missing values coded as NA
 year,sample_date,site,fish_id,total_length_mm,weight_g,sex
 2012,2012-10-02,TN01,C00001,235,166.4,F
 2012,2012-10-02,TN01,C00002,204,107.9,M

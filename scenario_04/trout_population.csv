@@ -1,16 +1,3 @@
-# trout_population.csv
-# Elk Fork Creek - Brown Trout Annual Electrofishing Survey Data
-# Columns:
-#   year: Year of survey (integer, YYYY)
-#   sample_date: Date of electrofishing (YYYY-MM-DD)
-#   site: Stream site identifier (character, EF01-EF05)
-#   reach_length_m: Length of the sampled reach in meters
-#   fish_id: Unique fish identifier (character)
-#   total_length_mm: Total length in millimeters
-#   weight_g: Weight in grams; NA if not weighed
-#   cpue_per_100m: Site-level CPUE (fish per 100 m of stream); same for all fish at a site-year
-# Units: length in mm, weight in g, reach in meters
-# Missing values coded as NA
 year,sample_date,site,reach_length_m,fish_id,total_length_mm,weight_g,cpue_per_100m
 2013,2013-08-07,EF01,150,T00001,182,67.0,18.0
 2013,2013-08-07,EF01,150,T00002,319,296.4,18.0

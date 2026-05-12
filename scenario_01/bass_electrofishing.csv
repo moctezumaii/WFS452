@@ -1,16 +1,3 @@
-# bass_electrofishing.csv
-# Pine Bluff Reservoir - Largemouth Bass Fall Electrofishing Survey Data
-# Columns:
-#   year: Year of sampling (integer, YYYY)
-#   sample_date: Date of electrofishing run (YYYY-MM-DD)
-#   site: Sampling site identifier (character, e.g., S01-S08)
-#   effort_seconds: Electrofishing effort in seconds per run
-#   fish_id: Unique fish identifier within that run
-#   total_length_mm: Total length of individual fish in millimeters
-#   weight_g: Weight of individual fish in grams; NA if not weighed
-#   cpue_fish_per_hr: Catch per unit effort (fish per hour) for the site-year; same for all fish in a site-year
-# Units: length in mm, weight in g, effort in seconds, CPUE in fish/hr
-# Missing values coded as NA
 year,sample_date,site,effort_seconds,fish_id,total_length_mm,weight_g,cpue_fish_per_hr
 2014,2014-10-25,S01,857,F00001,316,415.5,33.6
 2014,2014-10-25,S01,857,F00002,260,271.8,33.6

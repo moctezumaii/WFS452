@@ -1,17 +1,3 @@
-# walleye_gillnet.csv
-# Lake Sandhill - Walleye Standardized Fall Gill Net Survey Data
-# Columns:
-#   year: Survey year (integer, YYYY)
-#   sample_date: Date gill net was set (YYYY-MM-DD)
-#   site: Net site identifier (character, GN01-GN08)
-#   net_length_m: Total length of gill net in meters
-#   set_duration_hr: Hours the net was set
-#   fish_id: Unique fish identifier (character)
-#   total_length_mm: Total length of walleye in millimeters
-#   weight_g: Weight in grams; NA if not weighed
-#   cpue_per_net: Number of walleye per net night for that site-year
-# Units: net length in m, duration in hours, length in mm, weight in g
-# Missing values coded as NA
 year,sample_date,site,net_length_m,set_duration_hr,fish_id,total_length_mm,weight_g,cpue_per_net
 2012,2012-09-13,GN01,76.2,23.1,W00001,345,656.6,13
 2012,2012-09-13,GN01,76.2,23.1,W00002,436,1335.5,13

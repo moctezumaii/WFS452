@@ -1,16 +1,3 @@
-# vegetation_survey.csv
-# Mirror Lake - Aquatic Vegetation Coverage Survey
-# Columns:
-#   year: Year of survey (integer, YYYY)
-#   transect: Transect identifier (character, V01-V12)
-#   depth_m: Water depth at the transect point in meters
-#   submergent_pct: Percent cover of submergent vegetation (e.g., pondweed, coontail)
-#   emergent_pct: Percent cover of emergent vegetation (e.g., cattail, bulrush)
-#   floating_pct: Percent cover of floating-leaf vegetation (e.g., water lily)
-#   bare_pct: Percent of transect with no vegetation
-#   dominant_species: Most abundant plant species observed (character); NA if bare
-# Units: depth in meters, cover in %
-# Missing values coded as NA
 year,transect,depth_m,submergent_pct,emergent_pct,floating_pct,bare_pct,dominant_species
 2010,V01,1.6,33,10,8,49,Myriophyllum
 2010,V02,0.6,37,18,3,42,Ceratophyllum
